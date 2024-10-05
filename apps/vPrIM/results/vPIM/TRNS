@@ -1,0 +1,17 @@
+Allocated 60 DPU(s)
+Load input data (step 1)
+hre is M*m 196608
+Run step 2 on DPU(s)
+Run step 3 on DPU(s)
+Retrieve results
+Allocated 4 DPU(s)
+Load input data (step 1)
+hre is M*m 196608
+Run step 2 on DPU(s)
+Run step 3 on DPU(s)
+Retrieve results
+Results:
+	CPU-DPU: 1476.111000	
+	DPU: 858.972000	
+	DPU-CPU: 1009.794000	
+[OK] Outputs are equal

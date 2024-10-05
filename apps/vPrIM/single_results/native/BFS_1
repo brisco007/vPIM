@@ -1,0 +1,7 @@
+DPU 0 Partition Nodes 196591, Size 9631400 
+Comparing results with BFS executed on CPU
+Result: 
+	CPU-DPU: 140.030000	
+	Inter-DPU: 9.768000	
+	DPU: 3286.090000	
+	DPU-CPU: 9.539000	

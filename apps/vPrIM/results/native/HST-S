@@ -1,0 +1,12 @@
+Allocated 60 DPU(s)
+Repeat: 1
+Load input data
+CPU-DPU parallel: 16,6710888
+Run program on DPU(s) 
+Retrieve results
+DPU-CPU parallel: 1024
+Result: 
+	CPU-DPU: 172.041000	
+	DPU: 138.582000	
+	DPU-CPU: 0.345000	
+[[32mOK[0m] Outputs are equal

@@ -1,0 +1,14 @@
+Repeat: 4
+CPU-DPU parallel: 24,16388608,2097152
+DPU-CPU parallel: 128
+CPU-DPU parallel: 24,16388608,2097152
+DPU-CPU parallel: 128
+CPU-DPU parallel: 24,16388608,2097152
+DPU-CPU parallel: 128
+CPU-DPU parallel: 24,16388608,2097152
+DPU-CPU parallel: 128
+Results: 
+	CPU-DPU: 918.466667	
+	DPU: 7616.360333	
+	DPU-CPU: 0.416000	
+[[32mOK[0m] results are equal

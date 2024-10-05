@@ -1,0 +1,1647 @@
+\usetikzlibrary{positioning, shapes, arrows, shadows, patterns}
+\pgfplotsset{yticklabel style={text width=2.2em}}
+\begin{figure*}[h!]
+    \centering
+    \small
+
+\makeatletter
+\newenvironment{customlegend}[1][]{%
+    \begingroup
+    % inits/clears the lists (which might be populated from previous
+    % axes):
+    \pgfplots@init@cleared@structures
+    \pgfplotsset{#1}%
+}{%
+    % draws the legend:
+    \pgfplots@createlegend
+    \endgroup
+}%
+
+\def\addlegendimage{\pgfplots@addlegendimage}
+\makeatother
+\begin{tikzpicture}
+    \begin{customlegend}
+    [legend columns=4,
+    legend style={text width=8em,text height=1.2ex, column sep=1ex,
+    font=\fontsize{8pt}{10pt}\selectfont 
+    },
+    legend entries={
+    native-CPU-DPU, 
+    native-DPU, 
+    native-Inter-DPU, 
+    native-DPU-CPU,
+    vPIM-CPU-DPU, 
+    vPIM-DPU, 
+    vPIM-Inter-DPU, 
+    vPIM-DPU-CPU,
+    overhead}]
+    \addlegendimage{fill=blue!50, area legend}
+    \addlegendimage{fill=red!50, area legend}
+    \addlegendimage{fill=yellow, area legend}
+    \addlegendimage{fill=red!50!gray, area legend}
+    
+    \addlegendimage{fill=blue!50, postaction={pattern=north east lines}, area legend}
+    \addlegendimage{fill=red!50, postaction={pattern=north east lines}, area legend}
+    \addlegendimage{fill=yellow, postaction={pattern=north east lines}, area legend}
+    \addlegendimage{fill=red!50!gray, postaction={pattern=north east lines}, area legend}
+    \addlegendimage{blue}
+    \end{customlegend}
+\end{tikzpicture} 
+
+\hfill
+
+
+\begin{tikzpicture}
+% 60 DPU native
+\begin{axis}[
+  hide axis,
+  ybar stacked,
+  ymin=0,ymax=10240,
+  %x tick label style={rotate=45,anchor=east},
+  symbolic x coords={60,480},%number of DPUs
+  xtick={60,480},%number of DPUs
+  ytick={2560,5120,7680},
+  bar width=8pt,
+  height=3.4cm,
+  width=3.8cm,
+  ]
+\addplot+[fill=blue!50] 
+coordinates {(60,307.174) (480,0)};
+\addplot+[fill=red!50] 
+coordinates {(60,8127.989667) (480,0)};
+\addplot+[fill=yellow] 
+coordinates {(60,0) (480,0)};
+\addplot+[fill=red!30!gray] 
+coordinates {(60,1.026333) (480,0)};
+\end{axis}
+
+% 60 DPU vpim
+\begin{axis}[
+  ylabel={Exec time (ms)},
+  y label style={at={(axis description cs:0.1,0.5)}},
+  %_downxlabel={\#DPUs},
+  xlabel near ticks, 
+  bar shift=10pt,
+  ybar stacked,
+  ymin=0,ymax=10240,
+  symbolic x coords={60,480},%number of DPUs
+  xtick={60,480},%number of DPUs
+  ytick={2560,5120,7680},
+  bar width=8pt,
+  height=3.4cm,
+  width=3.8cm,
+  ]
+\addplot+[fill=blue!50, postaction={pattern=north east lines}] 
+coordinates {(60,334.079) (480,0)};
+\addplot+[fill=red!50, postaction={pattern=north east lines}] 
+coordinates {(60,8132.832667) (480,0)};
+\addplot+[fill=yellow, postaction={pattern=north east lines}] 
+coordinates {(60,0) (480,0)};
+\addplot+[fill=red!30!gray, postaction={pattern=north east lines}] 
+coordinates {(60,36.757667) (480,0)};
+\end{axis}
+
+% 480 DPU native 
+\begin{axis}[
+  bar shift=-10pt,hide axis,
+  ybar stacked,
+  ymin=0,ymax=10240,
+  x tick label style={rotate=45,anchor=east},
+  symbolic x coords={60,480},%number of DPUs
+  xtick={60,480},%number of DPUs
+  ytick={2560,5120,7680},
+  bar width=8pt,
+  height=3.4cm,
+  width=3.8cm,
+  ]
+\addplot+[fill=blue!50] 
+coordinates {(60,0) (480,1270.5)};
+\addplot+[fill=red!50] 
+coordinates {(60,0) (480,1020.158333)};
+\addplot+[fill=yellow] 
+coordinates {(60,0) (480,0)};
+\addplot+[fill=red!30!gray] 
+coordinates {(60,0) (480,1.645)};
+\end{axis}
+
+% 480 DPU vpim
+\begin{axis}[
+  hide axis,
+  ybar stacked,
+  ymin=0,ymax=10240,
+  x tick label style={rotate=45,anchor=east},
+  symbolic x coords={60,480},%number of DPUs
+  xtick={60,480},%number of DPUs
+  ytick={2560,5120,7680},
+  bar width=8pt,
+  height=3.4cm,
+  width=3.8cm,
+  ]
+\addplot+[fill=blue!50, postaction={pattern=north east lines}] 
+coordinates {(60,0) (480,1284.705)};
+\addplot+[fill=red!50, postaction={pattern=north east lines},] 
+coordinates {(60,0) (480,1051.710667)};
+\addplot+[fill=yellow, postaction={pattern=north east lines},] 
+coordinates {(60,0) (480,0)};
+\addplot+[fill=red!30!gray, postaction={pattern=north east lines},] 
+coordinates {(60,0) (480,167.235667)};
+\end{axis}
+
+\node[anchor=north] at (1.2,2.4) {\texttt{BS}};
+\end{tikzpicture}
+%---
+\begin{tikzpicture}
+% 60 DPU native
+\begin{axis}[
+  hide axis,
+  ybar stacked,
+  ymin=0,ymax=14400,
+  %x tick label style={rotate=45,anchor=east},
+  symbolic x coords={60,480},%number of DPUs
+  xtick={60,480},%number of DPUs
+  ytick={3600,7200,10800},
+  bar width=8pt,
+  height=3.4cm,
+  width=3.8cm,
+  ]
+\addplot+[fill=blue!50] 
+coordinates {(60,187.010333) (480,0)};
+\addplot+[fill=red!50] 
+coordinates {(60,11623.101) (480,0)};
+\addplot+[fill=yellow] 
+coordinates {(60,0.0) (480,0)};
+\addplot+[fill=red!30!gray] 
+coordinates {(60,1.273333) (480,0)};
+\end{axis}
+
+% 60 DPU vpim
+\begin{axis}[
+  %_leftylabel={Exec time (ms)},
+  %_lefty label style={at={(axis description cs:0.1,0.5)}},
+  %_downxlabel={\#DPUs},
+  xlabel near ticks, 
+  bar shift=10pt,
+  ybar stacked,
+  ymin=0,ymax=14400,
+  symbolic x coords={60,480},%number of DPUs
+  xtick={60,480},%number of DPUs
+  ytick={3600,7200,10800},
+  bar width=8pt,
+  height=3.4cm,
+  width=3.8cm,
+  ]
+\addplot+[fill=blue!50, postaction={pattern=north east lines}] 
+coordinates {(60,293.653667) (480,0)};
+\addplot+[fill=red!50, postaction={pattern=north east lines}] 
+coordinates {(60,11614.326333) (480,0)};
+\addplot+[fill=yellow, postaction={pattern=north east lines}] 
+coordinates {(60,0.0) (480,0)};
+\addplot+[fill=red!30!gray, postaction={pattern=north east lines}] 
+coordinates {(60,73.717) (480,0)};
+\end{axis}
+
+% 480 DPU native 
+\begin{axis}[
+  bar shift=-10pt,hide axis,
+  ybar stacked,
+  ymin=0,ymax=14400,
+  x tick label style={rotate=45,anchor=east},
+  symbolic x coords={60,480},%number of DPUs
+  xtick={60,480},%number of DPUs
+  ytick={3600,7200,10800},
+  bar width=8pt,
+  height=3.4cm,
+  width=3.8cm,
+  ]
+\addplot+[fill=blue!50] 
+coordinates {(60,0) (480,137.314667)};
+\addplot+[fill=red!50] 
+coordinates {(60,0) (480,1520.030667)};
+\addplot+[fill=yellow] 
+coordinates {(60,0) (480,0.0)};
+\addplot+[fill=red!30!gray] 
+coordinates {(60,0) (480,1.62)};
+\end{axis}
+
+% 480 DPU vpim
+\begin{axis}[
+  hide axis,
+  ybar stacked,
+  ymin=0,ymax=14400,
+  x tick label style={rotate=45,anchor=east},
+  symbolic x coords={60,480},%number of DPUs
+  xtick={60,480},%number of DPUs
+  ytick={3600,7200,10800},
+  bar width=8pt,
+  height=3.4cm,
+  width=3.8cm,
+  ]
+\addplot+[fill=blue!50, postaction={pattern=north east lines}] 
+coordinates {(60,0) (480,531.120333)};
+\addplot+[fill=red!50, postaction={pattern=north east lines},] 
+coordinates {(60,0) (480,1549.641667)};
+\addplot+[fill=yellow, postaction={pattern=north east lines},] 
+coordinates {(60,0) (480,0.0)};
+\addplot+[fill=red!30!gray, postaction={pattern=north east lines},] 
+coordinates {(60,0) (480,300.752)};
+\end{axis}
+
+\node[anchor=north] at (1.2,2.4) {\texttt{TS}};
+\end{tikzpicture}
+%---
+\begin{tikzpicture}
+% 60 DPU native
+\begin{axis}[
+  hide axis,
+  ybar stacked,
+  ymin=0,ymax=4720,
+  %x tick label style={rotate=45,anchor=east},
+  symbolic x coords={60,480},%number of DPUs
+  xtick={60,480},%number of DPUs
+  ytick={1180,2360,3540},
+  bar width=8pt,
+  height=3.4cm,
+  width=3.8cm,
+  ]
+\addplot+[fill=blue!50] 
+coordinates {(60,1102.887667) (480,0)};
+\addplot+[fill=red!50] 
+coordinates {(60,1225.559333) (480,0)};
+\addplot+[fill=yellow] 
+coordinates {(60,1527.922667) (480,0)};
+\addplot+[fill=red!30!gray] 
+coordinates {(60,0.529667) (480,0)};
+\end{axis}
+
+% 60 DPU vpim
+\begin{axis}[
+  %_leftylabel={Exec time (ms)},
+  %_lefty label style={at={(axis description cs:0.1,0.5)}},
+  %_downxlabel={\#DPUs},
+  xlabel near ticks, 
+  bar shift=10pt,
+  ybar stacked,
+  ymin=0,ymax=4720,
+  symbolic x coords={60,480},%number of DPUs
+  xtick={60,480},%number of DPUs
+  ytick={1180,2360,3540},
+  bar width=8pt,
+  height=3.4cm,
+  width=3.8cm,
+  ]
+\addplot+[fill=blue!50, postaction={pattern=north east lines}] 
+coordinates {(60,1130.78266) (480,0)};
+\addplot+[fill=red!50, postaction={pattern=north east lines}] 
+coordinates {(60,1256.677333) (480,0)};
+\addplot+[fill=yellow, postaction={pattern=north east lines}] 
+coordinates {(60,1532.721333) (480,0)};
+\addplot+[fill=red!30!gray, postaction={pattern=north east lines}] 
+coordinates {(60,11.72) (480,0)};
+\end{axis}
+
+% 480 DPU native 
+\begin{axis}[
+  bar shift=-10pt,hide axis,
+  ybar stacked,
+  ymin=0,ymax=4720,
+  x tick label style={rotate=45,anchor=east},
+  symbolic x coords={60,480},%number of DPUs
+  xtick={60,480},%number of DPUs
+  ytick={1180,2360,3540},
+  bar width=8pt,
+  height=3.4cm,
+  width=3.8cm,
+  ]
+\addplot+[fill=blue!50] 
+coordinates {(60,0) (480,607.692333)};
+\addplot+[fill=red!50] 
+coordinates {(60,0) (480,153.405)};
+\addplot+[fill=yellow] 
+coordinates {(60,0) (480,980.489667)};
+\addplot+[fill=red!30!gray] 
+coordinates {(60,0) (480,0.693667)};
+\end{axis}
+
+% 480 DPU vpim
+\begin{axis}[
+  hide axis,
+  ybar stacked,
+  ymin=0,ymax=4720,
+  x tick label style={rotate=45,anchor=east},
+  symbolic x coords={60,480},%number of DPUs
+  xtick={60,480},%number of DPUs
+  ytick={1180,2360,3540},
+  bar width=8pt,
+  height=3.4cm,
+  width=3.8cm,
+  ]
+\addplot+[fill=blue!50, postaction={pattern=north east lines}] 
+coordinates {(60,0) (480,585.172333)};
+\addplot+[fill=red!50, postaction={pattern=north east lines},] 
+coordinates {(60,0) (480,238.223)};
+\addplot+[fill=yellow, postaction={pattern=north east lines},] 
+coordinates {(60,0) (480,904.722333)};
+\addplot+[fill=red!30!gray, postaction={pattern=north east lines},] 
+coordinates {(60,0) (480,47.391)};
+\end{axis}
+
+\node[anchor=north] at (1.2,2.4) {\texttt{MLP}};
+\end{tikzpicture}
+%---
+\begin{tikzpicture}
+% 60 DPU native
+\begin{axis}[
+  hide axis,
+  ybar stacked,
+  ymin=0,ymax=1040,
+  %x tick label style={rotate=45,anchor=east},
+  symbolic x coords={60,480},%number of DPUs
+  xtick={60,480},%number of DPUs
+  ytick={260,520,780},
+  bar width=8pt,
+  height=3.4cm,
+  width=3.8cm,
+  ]
+\addplot+[fill=blue!50] 
+coordinates {(60,445.94) (480,0)};
+\addplot+[fill=red!50] 
+coordinates {(60,81.332) (480,0)};
+\addplot+[fill=yellow] 
+coordinates {(60,0) (480,0)};
+\addplot+[fill=red!30!gray] 
+coordinates {(60,239.969) (480,0)};
+\end{axis}
+
+% 60 DPU vpim
+\begin{axis}[
+  %_leftylabel={Exec time (ms)},
+  %_lefty label style={at={(axis description cs:0.1,0.5)}},
+  %_downxlabel={\#DPUs},
+  xlabel near ticks, 
+  bar shift=10pt,
+  ybar stacked,
+  ymin=0,ymax=1040,
+  symbolic x coords={60,480},%number of DPUs
+  xtick={60,480},%number of DPUs
+  ytick={260,520,780},
+  bar width=8pt,
+  height=3.4cm,
+  width=3.8cm,
+  ]
+\addplot+[fill=blue!50, postaction={pattern=north east lines}] 
+coordinates {(60,490.961) (480,0)};
+\addplot+[fill=red!50, postaction={pattern=north east lines}] 
+coordinates {(60,89.344) (480,0)};
+\addplot+[fill=yellow, postaction={pattern=north east lines}] 
+coordinates {(60,0) (480,0)};
+\addplot+[fill=red!30!gray, postaction={pattern=north east lines}] 
+coordinates {(60,281.091) (480,0)};
+\end{axis}
+
+% 480 DPU native 
+\begin{axis}[
+  bar shift=-10pt,hide axis,
+  ybar stacked,
+  ymin=0,ymax=1040,
+  x tick label style={rotate=45,anchor=east},
+  symbolic x coords={60,480},%number of DPUs
+  xtick={60,480},%number of DPUs
+  ytick={260,520,780},
+  bar width=8pt,
+  height=3.4cm,
+  width=3.8cm,
+  ]
+\addplot+[fill=blue!50] 
+coordinates {(60,0) (480,348.017)};
+\addplot+[fill=red!50] 
+coordinates {(60,0) (480,10.448)};
+\addplot+[fill=yellow] 
+coordinates {(60,0) (480,0)};
+\addplot+[fill=red!30!gray] 
+coordinates {(60,0) (480,175.768)};
+\end{axis}
+
+% 480 DPU vpim
+\begin{axis}[
+  hide axis,
+  ybar stacked,
+  ymin=0,ymax=1040,
+  x tick label style={rotate=45,anchor=east},
+  symbolic x coords={60,480},%number of DPUs
+  xtick={60,480},%number of DPUs
+  ytick={260,520,780},
+  bar width=8pt,
+  height=3.4cm,
+  width=3.8cm,
+  ]
+\addplot+[fill=blue!50, postaction={pattern=north east lines}] 
+coordinates {(60,0) (480,332.968)};
+\addplot+[fill=red!50, postaction={pattern=north east lines},] 
+coordinates {(60,0) (480,44.827)};
+\addplot+[fill=yellow, postaction={pattern=north east lines},] 
+coordinates {(60,0) (480,0)};
+\addplot+[fill=red!30!gray, postaction={pattern=north east lines},] 
+coordinates {(60,0) (480,244.148)};
+\end{axis}
+
+\node[anchor=north] at (1.2,2.4) {\texttt{VA}};
+\end{tikzpicture}
+%---
+
+%---
+\begin{tikzpicture}
+% 60 DPU native
+\begin{axis}[
+  hide axis,
+  ybar stacked,
+  ymin=0,ymax=840,
+  %x tick label style={rotate=45,anchor=east},
+  symbolic x coords={60,480},%number of DPUs
+  xtick={60,480},%number of DPUs
+  ytick={210,420,630},
+  bar width=8pt,
+  height=3.4cm,
+  width=3.8cm,
+  ]
+\addplot+[fill=blue!50] 
+coordinates {(60,166.828) (480,0)};
+\addplot+[fill=red!50] 
+coordinates {(60,465.107) (480,0)};
+\addplot+[fill=yellow] 
+coordinates {(60,0) (480,0)};
+\addplot+[fill=red!30!gray] 
+coordinates {(60,0.543) (480,0)};
+\end{axis}
+
+% 60 DPU vpim
+\begin{axis}[
+  ylabel={Exec time (ms)},
+  y label style={at={(axis description cs:0.1,0.5)}},
+  %_downxlabel={\#DPUs},
+  xlabel near ticks, 
+  bar shift=10pt,
+  ybar stacked,
+  ymin=0,ymax=840,
+  symbolic x coords={60,480},%number of DPUs
+  xtick={60,480},%number of DPUs
+  ytick={210,420,630},
+  bar width=8pt,
+  height=3.4cm,
+  width=3.8cm,
+  ]
+\addplot+[fill=blue!50, postaction={pattern=north east lines}] 
+coordinates {(60,185.14) (480,0)};
+\addplot+[fill=red!50, postaction={pattern=north east lines}] 
+coordinates {(60,476.626) (480,0)};
+\addplot+[fill=yellow, postaction={pattern=north east lines}] 
+coordinates {(60,0) (480,0)};
+\addplot+[fill=red!30!gray, postaction={pattern=north east lines}] 
+coordinates {(60,9.908) (480,0)};
+\end{axis}
+
+% 480 DPU native 
+\begin{axis}[
+  bar shift=-10pt,hide axis,
+  ybar stacked,
+  ymin=0,ymax=840,
+  x tick label style={rotate=45,anchor=east},
+  symbolic x coords={60,480},%number of DPUs
+  xtick={60,480},%number of DPUs
+  ytick={210,420,630},
+  bar width=8pt,
+  height=3.4cm,
+  width=3.8cm,
+  ]
+\addplot+[fill=blue!50] 
+coordinates {(60,0) (480,112.236)};
+\addplot+[fill=red!50] 
+coordinates {(60,0) (480,58.317)};
+\addplot+[fill=yellow] 
+coordinates {(60,0) (480,0)};
+\addplot+[fill=red!30!gray] 
+coordinates {(60,0) (480,0.843)};
+\end{axis}
+
+% 480 DPU vpim
+\begin{axis}[
+  hide axis,
+  ybar stacked,
+  ymin=0,ymax=840,
+  x tick label style={rotate=45,anchor=east},
+  symbolic x coords={60,480},%number of DPUs
+  xtick={60,480},%number of DPUs
+  ytick={210,420,630},
+  bar width=8pt,
+  height=3.4cm,
+  width=3.8cm,
+  ]
+\addplot+[fill=blue!50, postaction={pattern=north east lines}] 
+coordinates {(60,0) (480,114.488)};
+\addplot+[fill=red!50, postaction={pattern=north east lines},] 
+coordinates {(60,0) (480,91.55)};
+\addplot+[fill=yellow, postaction={pattern=north east lines},] 
+coordinates {(60,0) (480,0)};
+\addplot+[fill=red!30!gray, postaction={pattern=north east lines},] 
+coordinates {(60,0) (480,43.641)};
+\end{axis}
+
+\node[anchor=north] at (1.2,2.4) {\texttt{HST-L}};
+\end{tikzpicture}
+%---
+\begin{tikzpicture}
+% 60 DPU native
+\begin{axis}[
+  hide axis,
+  ybar stacked,
+  ymin=0,ymax=440,
+  %x tick label style={rotate=45,anchor=east},
+  symbolic x coords={60,480},%number of DPUs
+  xtick={60,480},%number of DPUs
+  ytick={110,220,330},
+  bar width=8pt,
+  height=3.4cm,
+  width=3.8cm,
+  ]
+\addplot+[fill=blue!50] 
+coordinates {(60,172.422) (480,0)};
+\addplot+[fill=red!50] 
+coordinates {(60,138.509) (480,0)};
+\addplot+[fill=yellow] 
+coordinates {(60,0) (480,0)};
+\addplot+[fill=red!30!gray] 
+coordinates {(60,0.263) (480,0)};
+\end{axis}
+
+% 60 DPU vpim
+\begin{axis}[
+  %_leftylabel={Exec time (ms)},
+  %_lefty label style={at={(axis description cs:0.1,0.5)}},
+  %_downxlabel={\#DPUs},
+  xlabel near ticks, 
+  bar shift=10pt,
+  ybar stacked,
+  ymin=0,ymax=440,
+  symbolic x coords={60,480},%number of DPUs
+  xtick={60,480},%number of DPUs
+  ytick={110,220,330},
+  bar width=8pt,
+  height=3.4cm,
+  width=3.8cm,
+  ]
+\addplot+[fill=blue!50, postaction={pattern=north east lines}] 
+coordinates {(60,180.75) (480,0)};
+\addplot+[fill=red!50, postaction={pattern=north east lines}] 
+coordinates {(60,146.689) (480,0)};
+\addplot+[fill=yellow, postaction={pattern=north east lines}] 
+coordinates {(60,0) (480,0)};
+\addplot+[fill=red!30!gray, postaction={pattern=north east lines}] 
+coordinates {(60,10.555) (480,0)};
+\end{axis}
+
+% 480 DPU native 
+\begin{axis}[
+  bar shift=-10pt,hide axis,
+  ybar stacked,
+  ymin=0,ymax=440,
+  x tick label style={rotate=45,anchor=east},
+  symbolic x coords={60,480},%number of DPUs
+  xtick={60,480},%number of DPUs
+  ytick={110,220,330},
+  bar width=8pt,
+  height=3.4cm,
+  width=3.8cm,
+  ]
+\addplot+[fill=blue!50] 
+coordinates {(60,0) (480,141.095)};
+\addplot+[fill=red!50] 
+coordinates {(60,0) (480,18.115)};
+\addplot+[fill=yellow] 
+coordinates {(60,0) (480,0)};
+\addplot+[fill=red!30!gray] 
+coordinates {(60,0) (480,1.452)};
+\end{axis}
+
+% 480 DPU vpim
+\begin{axis}[
+  hide axis,
+  ybar stacked,
+  ymin=0,ymax=440,
+  x tick label style={rotate=45,anchor=east},
+  symbolic x coords={60,480},%number of DPUs
+  xtick={60,480},%number of DPUs
+  ytick={110,220,330},
+  bar width=8pt,
+  height=3.4cm,
+  width=3.8cm,
+  ]
+\addplot+[fill=blue!50, postaction={pattern=north east lines}] 
+coordinates {(60,0) (480,137.296)};
+\addplot+[fill=red!50, postaction={pattern=north east lines},] 
+coordinates {(60,0) (480,46.246)};
+\addplot+[fill=yellow, postaction={pattern=north east lines},] 
+coordinates {(60,0) (480,0)};
+\addplot+[fill=red!30!gray, postaction={pattern=north east lines},] 
+coordinates {(60,0) (480,33.987)};
+\end{axis}
+
+\node[anchor=north] at (1.2,2.4) {\texttt{HST-S}};
+\end{tikzpicture}
+%---
+\begin{tikzpicture}
+% 60 DPU native
+\begin{axis}[
+  hide axis,
+  ybar stacked,
+  ymin=0,ymax=1920,
+  %x tick label style={rotate=45,anchor=east},
+  symbolic x coords={60,480},%number of DPUs
+  xtick={60,480},%number of DPUs
+  ytick={480,960,1440},
+  bar width=8pt,
+  height=3.4cm,
+  width=3.8cm,
+  ]
+\addplot+[fill=blue!50] 
+coordinates {(60,794.266667) (480,0)};
+\addplot+[fill=red!50] 
+coordinates {(60,623.752667) (480,0)};
+\addplot+[fill=yellow] 
+coordinates {(60,0) (480,0)};
+\addplot+[fill=red!30!gray] 
+coordinates {(60,1.524333) (480,0)};
+\end{axis}
+
+% 60 DPU vpim
+\begin{axis}[
+  %_leftylabel={Exec time (ms)},
+  %_lefty label style={at={(axis description cs:0.1,0.5)}},
+  %_downxlabel={\#DPUs},
+  xlabel near ticks, 
+  bar shift=10pt,
+  ybar stacked,
+  ymin=0,ymax=1920,
+  symbolic x coords={60,480},%number of DPUs
+  xtick={60,480},%number of DPUs
+  ytick={480,960,1440},
+  bar width=8pt,
+  height=3.4cm,
+  width=3.8cm,
+  ]
+\addplot+[fill=blue!50, postaction={pattern=north east lines}] 
+coordinates {(60,919.695) (480,0)};
+\addplot+[fill=red!50, postaction={pattern=north east lines}] 
+coordinates {(60,643.173667) (480,0)};
+\addplot+[fill=yellow, postaction={pattern=north east lines}] 
+coordinates {(60,0) (480,0)};
+\addplot+[fill=red!30!gray, postaction={pattern=north east lines}] 
+coordinates {(60,14.188667) (480,0)};
+\end{axis}
+
+% 480 DPU native 
+\begin{axis}[
+  bar shift=-10pt,hide axis,
+  ybar stacked,
+  ymin=0,ymax=1920,
+  x tick label style={rotate=45,anchor=east},
+  symbolic x coords={60,480},%number of DPUs
+  xtick={60,480},%number of DPUs
+  ytick={480,960,1440},
+  bar width=8pt,
+  height=3.4cm,
+  width=3.8cm,
+  ]
+\addplot+[fill=blue!50] 
+coordinates {(60,0) (480,517.555333)};
+\addplot+[fill=red!50] 
+coordinates {(60,0) (480,78.093)};
+\addplot+[fill=yellow] 
+coordinates {(60,0) (480,0)};
+\addplot+[fill=red!30!gray] 
+coordinates {(60,0) (480,1.771)};
+\end{axis}
+
+% 480 DPU vpim
+\begin{axis}[
+  hide axis,
+  ybar stacked,
+  ymin=0,ymax=1920,
+  x tick label style={rotate=45,anchor=east},
+  symbolic x coords={60,480},%number of DPUs
+  xtick={60,480},%number of DPUs
+  ytick={480,960,1440},
+  bar width=8pt,
+  height=3.4cm,
+  width=3.8cm,
+  ]
+\addplot+[fill=blue!50, postaction={pattern=north east lines}] 
+coordinates {(60,0) (480,518.19)};
+\addplot+[fill=red!50, postaction={pattern=north east lines},] 
+coordinates {(60,0) (480,120.073667)};
+\addplot+[fill=yellow, postaction={pattern=north east lines},] 
+coordinates {(60,0) (480,0)};
+\addplot+[fill=red!30!gray, postaction={pattern=north east lines},] 
+coordinates {(60,0) (480,48.384667)};
+\end{axis}
+
+\node[anchor=north] at (1.2,2.4) {\texttt{GEMV}};
+\end{tikzpicture}
+%---
+\begin{tikzpicture}
+% 60 DPU native
+\begin{axis}[
+  hide axis,
+  ybar stacked,
+  ymin=0,ymax=2440,
+  %x tick label style={rotate=45,anchor=east},
+  symbolic x coords={60,480},%number of DPUs
+  xtick={60,480},%number of DPUs
+  ytick={610,1220,1830},
+  bar width=8pt,
+  height=3.4cm,
+  width=3.8cm,
+  ]
+\addplot+[fill=blue!50] 
+coordinates {(60,634.792) (480,0)};
+\addplot+[fill=red!50] 
+coordinates {(60,249.814) (480,0)};
+\addplot+[fill=yellow] 
+coordinates {(60,1.265) (480,0)};
+\addplot+[fill=red!30!gray] 
+coordinates {(60,958.73) (480,0)};
+\end{axis}
+
+% 60 DPU vpim
+\begin{axis}[
+  %_leftylabel={Exec time (ms)},
+  %_lefty label style={at={(axis description cs:0.1,0.5)}},
+  %_downxlabel={\#DPUs},
+  xlabel near ticks, 
+  bar shift=10pt,
+  ybar stacked,
+  ymin=0,ymax=2440,
+  symbolic x coords={60,480},%number of DPUs
+  xtick={60,480},%number of DPUs
+  ytick={610,1220,1830},
+  bar width=8pt,
+  height=3.4cm,
+  width=3.8cm,
+  ]
+\addplot+[fill=blue!50, postaction={pattern=north east lines}] 
+coordinates {(60,700.52) (480,0)};
+\addplot+[fill=red!50, postaction={pattern=north east lines}] 
+coordinates {(60,264.268) (480,0)};
+\addplot+[fill=yellow, postaction={pattern=north east lines}] 
+coordinates {(60,46.538) (480,0)};
+\addplot+[fill=red!30!gray, postaction={pattern=north east lines}] 
+coordinates {(60,1010.722) (480,0)};
+\end{axis}
+
+% 480 DPU native 
+\begin{axis}[
+  bar shift=-10pt,hide axis,
+  ybar stacked,
+  ymin=0,ymax=2440,
+  x tick label style={rotate=45,anchor=east},
+  symbolic x coords={60,480},%number of DPUs
+  xtick={60,480},%number of DPUs
+  ytick={610,1220,1830},
+  bar width=8pt,
+  height=3.4cm,
+  width=3.8cm,
+  ]
+\addplot+[fill=blue!50] 
+coordinates {(60,0) (480,468.938)};
+\addplot+[fill=red!50] 
+coordinates {(60,0) (480,31.718)};
+\addplot+[fill=yellow] 
+coordinates {(60,0) (480,1.966)};
+\addplot+[fill=red!30!gray] 
+coordinates {(60,0) (480,704.647)};
+\end{axis}
+
+% 480 DPU vpim
+\begin{axis}[
+  hide axis,
+  ybar stacked,
+  ymin=0,ymax=2440,
+  x tick label style={rotate=45,anchor=east},
+  symbolic x coords={60,480},%number of DPUs
+  xtick={60,480},%number of DPUs
+  ytick={610,1220,1830},
+  bar width=8pt,
+  height=3.4cm,
+  width=3.8cm,
+  ]
+\addplot+[fill=blue!50, postaction={pattern=north east lines}] 
+coordinates {(60,0) (480,466.105)};
+\addplot+[fill=red!50, postaction={pattern=north east lines},] 
+coordinates {(60,0) (480,67.465)};
+\addplot+[fill=yellow, postaction={pattern=north east lines},] 
+coordinates {(60,0) (480,170.301)};
+\addplot+[fill=red!30!gray, postaction={pattern=north east lines},] 
+coordinates {(60,0) (480,655.94)};
+\end{axis}
+
+\node[anchor=north] at (1.2,2.4) {\texttt{SCAN-RSS}};
+\end{tikzpicture}
+%---
+
+%---
+\begin{tikzpicture}
+% 60 DPU native
+\begin{axis}[
+  hide axis,
+  ybar stacked,
+  ymin=0,ymax=2440,
+  %x tick label style={rotate=45,anchor=east},
+  symbolic x coords={60,480},%number of DPUs
+  xtick={60,480},%number of DPUs
+  ytick={610,1220,1830},
+  bar width=8pt,
+  height=3.4cm,
+  width=3.8cm,
+  ]
+\addplot+[fill=blue!50] 
+coordinates {(60,624.268) (480,0)};
+\addplot+[fill=red!50] 
+coordinates {(60,305.466) (480,0)};
+\addplot+[fill=yellow] 
+coordinates {(60,1.257) (480,0)};
+\addplot+[fill=red!30!gray] 
+coordinates {(60,1062.431) (480,0)};
+\end{axis}
+
+% 60 DPU vpim
+\begin{axis}[
+  ylabel={Exec time (ms)},
+  y label style={at={(axis description cs:0.1,0.5)}},
+  %_downxlabel={\#DPUs},
+  xlabel near ticks, 
+  bar shift=10pt,
+  ybar stacked,
+  ymin=0,ymax=2440,
+  symbolic x coords={60,480},%number of DPUs
+  xtick={60,480},%number of DPUs
+  ytick={610,1220,1830},
+  bar width=8pt,
+  height=3.4cm,
+  width=3.8cm,
+  ]
+\addplot+[fill=blue!50, postaction={pattern=north east lines}] 
+coordinates {(60,694.486) (480,0)};
+\addplot+[fill=red!50, postaction={pattern=north east lines}] 
+coordinates {(60,320.289) (480,0)};
+\addplot+[fill=yellow, postaction={pattern=north east lines}] 
+coordinates {(60,43.394) (480,0)};
+\addplot+[fill=red!30!gray, postaction={pattern=north east lines}] 
+coordinates {(60,969.063) (480,0)};
+\end{axis}
+
+% 480 DPU native 
+\begin{axis}[
+  bar shift=-10pt,hide axis,
+  ybar stacked,
+  ymin=0,ymax=2440,
+  x tick label style={rotate=45,anchor=east},
+  symbolic x coords={60,480},%number of DPUs
+  xtick={60,480},%number of DPUs
+  ytick={610,1220,1830},
+  bar width=8pt,
+  height=3.4cm,
+  width=3.8cm,
+  ]
+\addplot+[fill=blue!50] 
+coordinates {(60,0) (480,461.204)};
+\addplot+[fill=red!50] 
+coordinates {(60,0) (480,38.644)};
+\addplot+[fill=yellow] 
+coordinates {(60,0) (480,1.647)};
+\addplot+[fill=red!30!gray] 
+coordinates {(60,0) (480,674.359)};
+\end{axis}
+
+% 480 DPU vpim
+\begin{axis}[
+  hide axis,
+  ybar stacked,
+  ymin=0,ymax=2440,
+  x tick label style={rotate=45,anchor=east},
+  symbolic x coords={60,480},%number of DPUs
+  xtick={60,480},%number of DPUs
+  ytick={610,1220,1830},
+  bar width=8pt,
+  height=3.4cm,
+  width=3.8cm,
+  ]
+\addplot+[fill=blue!50, postaction={pattern=north east lines}] 
+coordinates {(60,0) (480,455.359)};
+\addplot+[fill=red!50, postaction={pattern=north east lines},] 
+coordinates {(60,0) (480,75.037)};
+\addplot+[fill=yellow, postaction={pattern=north east lines},] 
+coordinates {(60,0) (480,184.338)};
+\addplot+[fill=red!30!gray, postaction={pattern=north east lines},] 
+coordinates {(60,0) (480,634.07)};
+\end{axis}
+
+\node[anchor=north] at (1.2,2.4) {\texttt{SCAN-SSA}};
+\end{tikzpicture}
+%---
+\begin{tikzpicture}
+% 60 DPU native
+\begin{axis}[
+  hide axis,
+  ybar stacked,
+  ymin=0,ymax=1680,
+  %x tick label style={rotate=45,anchor=east},
+  symbolic x coords={60,480},%number of DPUs
+  xtick={60,480},%number of DPUs
+  ytick={420,840,1260},
+  bar width=8pt,
+  height=3.4cm,
+  width=3.8cm,
+  ]
+\addplot+[fill=blue!50] 
+coordinates {(60,1041.612) (480,0)};
+\addplot+[fill=red!50] 
+coordinates {(60,164.529) (480,0)};
+\addplot+[fill=yellow] 
+coordinates {(60,1.893) (480,0)};
+\addplot+[fill=red!30!gray] 
+coordinates {(60,0) (480,0)};
+\end{axis}
+
+% 60 DPU vpim
+\begin{axis}[
+  %_leftylabel={Exec time (ms)},
+  %_lefty label style={at={(axis description cs:0.1,0.5)}},
+  %_downxlabel={\#DPUs},
+  xlabel near ticks, 
+  bar shift=10pt,
+  ybar stacked,
+  ymin=0,ymax=1680,
+  symbolic x coords={60,480},%number of DPUs
+  xtick={60,480},%number of DPUs
+  ytick={420,840,1260},
+  bar width=8pt,
+  height=3.4cm,
+  width=3.8cm,
+  ]
+\addplot+[fill=blue!50, postaction={pattern=north east lines}] 
+coordinates {(60,1160.982) (480,0)};
+\addplot+[fill=red!50, postaction={pattern=north east lines}] 
+coordinates {(60,175.892) (480,0)};
+\addplot+[fill=yellow, postaction={pattern=north east lines}] 
+coordinates {(60,63.113) (480,0)};
+\addplot+[fill=red!30!gray, postaction={pattern=north east lines}] 
+coordinates {(60,0) (480,0)};
+\end{axis}
+
+% 480 DPU native 
+\begin{axis}[
+  bar shift=-10pt,hide axis,
+  ybar stacked,
+  ymin=0,ymax=1680,
+  x tick label style={rotate=45,anchor=east},
+  symbolic x coords={60,480},%number of DPUs
+  xtick={60,480},%number of DPUs
+  ytick={420,840,1260},
+  bar width=8pt,
+  height=3.4cm,
+  width=3.8cm,
+  ]
+\addplot+[fill=blue!50] 
+coordinates {(60,0) (480,644.55)};
+\addplot+[fill=red!50] 
+coordinates {(60,0) (480,20.84)};
+\addplot+[fill=yellow] 
+coordinates {(60,0) (480,2.05)};
+\addplot+[fill=red!30!gray] 
+coordinates {(60,0) (480,0)};
+\end{axis}
+
+% 480 DPU vpim
+\begin{axis}[
+  hide axis,
+  ybar stacked,
+  ymin=0,ymax=1680,
+  x tick label style={rotate=45,anchor=east},
+  symbolic x coords={60,480},%number of DPUs
+  xtick={60,480},%number of DPUs
+  ytick={420,840,1260},
+  bar width=8pt,
+  height=3.4cm,
+  width=3.8cm,
+  ]
+\addplot+[fill=blue!50, postaction={pattern=north east lines}] 
+coordinates {(60,0) (480,682.583)};
+\addplot+[fill=red!50, postaction={pattern=north east lines},] 
+coordinates {(60,0) (480,57.869)};
+\addplot+[fill=yellow, postaction={pattern=north east lines},] 
+coordinates {(60,0) (480,298.585)};
+\addplot+[fill=red!30!gray, postaction={pattern=north east lines},] 
+coordinates {(60,0) (480,0)};
+\end{axis}
+
+\node[anchor=north] at (1.2,2.4) {\texttt{RED}};
+\end{tikzpicture}
+%---
+\begin{tikzpicture}
+% 60 DPU native
+\begin{axis}[
+  hide axis,
+  ybar stacked,
+  ymin=0,ymax=1658000,
+  %x tick label style={rotate=45,anchor=east},
+  symbolic x coords={60,480},%number of DPUs
+  xtick={60,480},%number of DPUs
+  ytick={414500,829000,1243500},
+  bar width=8pt,
+  height=3.4cm,
+  width=3.8cm,
+  ]
+\addplot+[fill=blue!50] 
+coordinates {(60,652182.658) (480,0)};
+\addplot+[fill=red!50] 
+coordinates {(60,12653.508) (480,0)};
+\addplot+[fill=yellow] 
+coordinates {(60,0) (480,0)};
+\addplot+[fill=red!30!gray] 
+coordinates {(60,16309.14) (480,0)};
+\end{axis}
+
+% 60 DPU vpim
+\begin{axis}[
+  %_leftylabel={Exec time (ms)},
+  %_lefty label style={at={(axis description cs:0.1,0.5)}},
+  %_downxlabel={\#DPUs},
+  xlabel near ticks, 
+  bar shift=10pt,
+  ybar stacked,
+  ymin=0,ymax=1658000,
+  symbolic x coords={60,480},%number of DPUs
+  xtick={60,480},%number of DPUs
+  ytick={414500,829000,1243500},
+  bar width=8pt,
+  height=3.4cm,
+  width=3.8cm,
+  ]
+\addplot+[fill=blue!50, postaction={pattern=north east lines}] 
+coordinates {(60,1355085.824) (480,0)};
+\addplot+[fill=red!50, postaction={pattern=north east lines}] 
+coordinates {(60,13653.508) (480,0)};
+\addplot+[fill=yellow, postaction={pattern=north east lines}] 
+coordinates {(60,0) (480,0)};
+\addplot+[fill=red!30!gray, postaction={pattern=north east lines}] 
+coordinates {(60,12918.995) (480,0)};
+\end{axis}
+
+% 480 DPU native 
+\begin{axis}[
+  bar shift=-10pt,hide axis,
+  ybar stacked,
+  ymin=0,ymax=1658000,
+  x tick label style={rotate=45,anchor=east},
+  symbolic x coords={60,480},%number of DPUs
+  xtick={60,480},%number of DPUs
+  ytick={414500,829000,1243500},
+  bar width=8pt,
+  height=3.4cm,
+  width=3.8cm,
+  ]
+\addplot+[fill=blue!50] 
+coordinates {(60,0) (480,270141.513)};
+\addplot+[fill=red!50] 
+coordinates {(60,0) (480,2041.72)};
+\addplot+[fill=yellow] 
+coordinates {(60,0) (480,0)};
+\addplot+[fill=red!30!gray] 
+coordinates {(60,0) (480,5279.279)};
+\end{axis}
+
+% 480 DPU vpim
+\begin{axis}[
+  hide axis,
+  ybar stacked,
+  ymin=0,ymax=1658000,
+  x tick label style={rotate=45,anchor=east},
+  symbolic x coords={60,480},%number of DPUs
+  xtick={60,480},%number of DPUs
+  ytick={414500,829000,1243500},
+  bar width=8pt,
+  height=3.4cm,
+  width=3.8cm,
+  ]
+\addplot+[fill=blue!50, postaction={pattern=north east lines}] 
+coordinates {(60,0) (480,790951.745)};
+\addplot+[fill=red!50, postaction={pattern=north east lines},] 
+coordinates {(60,0) (480,2241.72)};
+\addplot+[fill=yellow, postaction={pattern=north east lines},] 
+coordinates {(60,0) (480,0)};
+\addplot+[fill=red!30!gray, postaction={pattern=north east lines},] 
+coordinates {(60,0) (480,8243.978)};
+\end{axis}
+
+\node[anchor=north] at (1.2,2.4) {\texttt{TRNS}};
+\end{tikzpicture}
+%---
+\begin{tikzpicture}
+% 60 DPU native
+\begin{axis}[
+  hide axis,
+  ybar stacked,
+  ymin=0,ymax=1891760,
+  %x tick label style={rotate=45,anchor=east},
+  symbolic x coords={60,480},%number of DPUs
+  xtick={60,480},%number of DPUs
+  ytick={472940,945880,1418820},
+  bar width=8pt,
+  height=3.4cm,
+  width=3.8cm,
+  ]
+\addplot+[fill=blue!50] 
+coordinates {(60,263636.858) (480,0)};
+\addplot+[fill=red!50] 
+coordinates {(60,25543.601) (480,0)};
+\addplot+[fill=yellow] 
+coordinates {(60,223492.142) (480,0)};
+\addplot+[fill=red!30!gray] 
+coordinates {(60,249229.877) (480,0)};
+\end{axis}
+
+% 60 DPU vpim
+\begin{axis}[
+  %_leftylabel={Exec time (ms)},
+  %_lefty label style={at={(axis description cs:0.1,0.5)}},
+  %_downxlabel={\#DPUs},
+  xlabel near ticks, 
+  bar shift=10pt,
+  ybar stacked,
+  ymin=0,ymax=1891760,
+  symbolic x coords={60,480},%number of DPUs
+  xtick={60,480},%number of DPUs
+  ytick={472940,945880,1418820},
+  bar width=8pt,
+  height=3.4cm,
+  width=3.8cm,
+  ]
+\addplot+[fill=blue!50, postaction={pattern=north east lines}] 
+coordinates {(60,651320.636) (480,0)};
+\addplot+[fill=red!50, postaction={pattern=north east lines}] 
+coordinates {(60,113529.998) (480,0)};
+\addplot+[fill=yellow, postaction={pattern=north east lines}] 
+coordinates {(60,637215.862) (480,0)};
+\addplot+[fill=red!30!gray, postaction={pattern=north east lines}] 
+coordinates {(60,174372.711) (480,0)};
+\end{axis}
+
+% 480 DPU native 
+\begin{axis}[
+  bar shift=-10pt,hide axis,
+  ybar stacked,
+  ymin=0,ymax=1891760,
+  x tick label style={rotate=45,anchor=east},
+  symbolic x coords={60,480},%number of DPUs
+  xtick={60,480},%number of DPUs
+  ytick={472940,945880,1418820},
+  bar width=8pt,
+  height=3.4cm,
+  width=3.8cm,
+  ]
+\addplot+[fill=blue!50] 
+coordinates {(60,0) (480,127176.049)};
+\addplot+[fill=red!50] 
+coordinates {(60,0) (480,4905.297)};
+\addplot+[fill=yellow] 
+coordinates {(60,0) (480,97586.325)};
+\addplot+[fill=red!30!gray] 
+coordinates {(60,0) (480,119897.164)};
+\end{axis}
+
+% 480 DPU vpim
+\begin{axis}[
+  hide axis,
+  ybar stacked,
+  ymin=0,ymax=1891760,
+  x tick label style={rotate=45,anchor=east},
+  symbolic x coords={60,480},%number of DPUs
+  xtick={60,480},%number of DPUs
+  ytick={472940,945880,1418820},
+  bar width=8pt,
+  height=3.4cm,
+  width=3.8cm,
+  ]
+\addplot+[fill=blue!50, postaction={pattern=north east lines}] 
+coordinates {(60,0) (480,321804.445)};
+\addplot+[fill=red!50, postaction={pattern=north east lines},] 
+coordinates {(60,0) (480,168731.754)};
+\addplot+[fill=yellow, postaction={pattern=north east lines},] 
+coordinates {(60,0) (480,297819.102)};
+\addplot+[fill=red!30!gray, postaction={pattern=north east lines},] 
+coordinates {(60,0) (480,188610.625)};
+\end{axis}
+
+\node[anchor=north] at (1.2,2.4) {\texttt{NW}};
+\end{tikzpicture}
+%---
+
+%---
+\begin{tikzpicture}
+% 60 DPU native
+\begin{axis}[
+  hide axis,
+  ybar stacked,
+  ymin=0,ymax=18360,
+  %x tick label style={rotate=45,anchor=east},
+  symbolic x coords={60,480},%number of DPUs
+  xtick={60,480},%number of DPUs
+  ytick={4590,9180,13770},
+  bar width=8pt,
+  height=3.4cm,
+  width=3.8cm,
+  ]
+\addplot+[fill=blue!50] 
+coordinates {(60,653.458) (480,0)};
+\addplot+[fill=red!50] 
+coordinates {(60,147.011) (480,0)};
+\addplot+[fill=yellow] 
+coordinates {(60,0.596) (480,0)};
+\addplot+[fill=red!30!gray] 
+coordinates {(60,7043.71) (480,0)};
+\end{axis}
+
+% 60 DPU vpim
+\begin{axis}[
+  ylabel={Exec time (ms)},
+  y label style={at={(axis description cs:0.1,0.5)}},
+  xlabel={\#DPUs},
+  xlabel near ticks, 
+  bar shift=10pt,
+  ybar stacked,
+  ymin=0,ymax=18360,
+  symbolic x coords={60,480},%number of DPUs
+  xtick={60,480},%number of DPUs
+  ytick={4590,9180,13770},
+  bar width=8pt,
+  height=3.4cm,
+  width=3.8cm,
+  ]
+\addplot+[fill=blue!50, postaction={pattern=north east lines}] 
+coordinates {(60,706.109) (480,0)};
+\addplot+[fill=red!50, postaction={pattern=north east lines}] 
+coordinates {(60,160.082) (480,0)};
+\addplot+[fill=yellow, postaction={pattern=north east lines}] 
+coordinates {(60,20.539) (480,0)};
+\addplot+[fill=red!30!gray, postaction={pattern=north east lines}] 
+coordinates {(60,9152.752) (480,0)};
+\end{axis}
+
+% 480 DPU native 
+\begin{axis}[
+  bar shift=-10pt,hide axis,
+  ybar stacked,
+  ymin=0,ymax=18360,
+  x tick label style={rotate=45,anchor=east},
+  symbolic x coords={60,480},%number of DPUs
+  xtick={60,480},%number of DPUs
+  ytick={4590,9180,13770},
+  bar width=8pt,
+  height=3.4cm,
+  width=3.8cm,
+  ]
+\addplot+[fill=blue!50] 
+coordinates {(60,0) (480,512.209)};
+\addplot+[fill=red!50] 
+coordinates {(60,0) (480,18.65)};
+\addplot+[fill=yellow] 
+coordinates {(60,0) (480,0.611)};
+\addplot+[fill=red!30!gray] 
+coordinates {(60,0) (480,9736.557)};
+\end{axis}
+
+% 480 DPU vpim
+\begin{axis}[
+  hide axis,
+  ybar stacked,
+  ymin=0,ymax=18360,
+  x tick label style={rotate=45,anchor=east},
+  symbolic x coords={60,480},%number of DPUs
+  xtick={60,480},%number of DPUs
+  ytick={4590,9180,13770},
+  bar width=8pt,
+  height=3.4cm,
+  width=3.8cm,
+  ]
+\addplot+[fill=blue!50, postaction={pattern=north east lines}] 
+coordinates {(60,0) (480,430.629)};
+\addplot+[fill=red!50, postaction={pattern=north east lines},] 
+coordinates {(60,0) (480,49.571)};
+\addplot+[fill=yellow, postaction={pattern=north east lines},] 
+coordinates {(60,0) (480,77.982)};
+\addplot+[fill=red!30!gray, postaction={pattern=north east lines},] 
+coordinates {(60,0) (480,14726.147)};
+\end{axis}
+
+\node[anchor=north] at (1.2,2.4) {\texttt{SEL}};
+\end{tikzpicture}
+%---
+\begin{tikzpicture}
+% 60 DPU native
+\begin{axis}[
+  hide axis,
+  ybar stacked,
+  ymin=0,ymax=18680,
+  %x tick label style={rotate=45,anchor=east},
+  symbolic x coords={60,480},%number of DPUs
+  xtick={60,480},%number of DPUs
+  ytick={4670,9340,14010},
+  bar width=8pt,
+  height=3.4cm,
+  width=3.8cm,
+  ]
+\addplot+[fill=blue!50] 
+coordinates {(60,654.927) (480,0)};
+\addplot+[fill=red!50] 
+coordinates {(60,101.659) (480,0)};
+\addplot+[fill=yellow] 
+coordinates {(60,2.835) (480,0)};
+\addplot+[fill=red!30!gray] 
+coordinates {(60,7139.231) (480,0)};
+\end{axis}
+
+% 60 DPU vpim
+\begin{axis}[
+  %_leftylabel={Exec time (ms)},
+  %_lefty label style={at={(axis description cs:0.1,0.5)}},
+  xlabel={\#DPUs},
+  xlabel near ticks, 
+  bar shift=10pt,
+  ybar stacked,
+  ymin=0,ymax=18680,
+  symbolic x coords={60,480},%number of DPUs
+  xtick={60,480},%number of DPUs
+  ytick={4670,9340,14010},
+  bar width=8pt,
+  height=3.4cm,
+  width=3.8cm,
+  ]
+\addplot+[fill=blue!50, postaction={pattern=north east lines}] 
+coordinates {(60,700.121) (480,0)};
+\addplot+[fill=red!50, postaction={pattern=north east lines}] 
+coordinates {(60,114.901) (480,0)};
+\addplot+[fill=yellow, postaction={pattern=north east lines}] 
+coordinates {(60,95.923) (480,0)};
+\addplot+[fill=red!30!gray, postaction={pattern=north east lines}] 
+coordinates {(60,8759.554) (480,0)};
+\end{axis}
+
+% 480 DPU native 
+\begin{axis}[
+  bar shift=-10pt,hide axis,
+  ybar stacked,
+  ymin=0,ymax=18680,
+  x tick label style={rotate=45,anchor=east},
+  symbolic x coords={60,480},%number of DPUs
+  xtick={60,480},%number of DPUs
+  ytick={4670,9340,14010},
+  bar width=8pt,
+  height=3.4cm,
+  width=3.8cm,
+  ]
+\addplot+[fill=blue!50] 
+coordinates {(60,0) (480,511.466)};
+\addplot+[fill=red!50] 
+coordinates {(60,0) (480,12.982)};
+\addplot+[fill=yellow] 
+coordinates {(60,0) (480,1.938)};
+\addplot+[fill=red!30!gray] 
+coordinates {(60,0) (480,9727.556)};
+\end{axis}
+
+% 480 DPU vpim
+\begin{axis}[
+  hide axis,
+  ybar stacked,
+  ymin=0,ymax=18680,
+  x tick label style={rotate=45,anchor=east},
+  symbolic x coords={60,480},%number of DPUs
+  xtick={60,480},%number of DPUs
+  ytick={4670,9340,14010},
+  bar width=8pt,
+  height=3.4cm,
+  width=3.8cm,
+  ]
+\addplot+[fill=blue!50, postaction={pattern=north east lines}] 
+coordinates {(60,0) (480,420.757)};
+\addplot+[fill=red!50, postaction={pattern=north east lines},] 
+coordinates {(60,0) (480,45.727)};
+\addplot+[fill=yellow, postaction={pattern=north east lines},] 
+coordinates {(60,0) (480,457.113)};
+\addplot+[fill=red!30!gray, postaction={pattern=north east lines},] 
+coordinates {(60,0) (480,14612.794)};
+\end{axis}
+
+\node[anchor=north] at (1.2,2.4) {\texttt{UNI}};
+\end{tikzpicture}
+%---
+\begin{tikzpicture}
+% 60 DPU native
+\begin{axis}[
+  hide axis,
+  ybar stacked,
+  ymin=0,ymax=25160,
+  %x tick label style={rotate=45,anchor=east},
+  symbolic x coords={60,480},%number of DPUs
+  xtick={60,480},%number of DPUs
+  ytick={6290,12580,18870},
+  bar width=8pt,
+  height=3.4cm,
+  width=3.8cm,
+  ]
+\addplot+[fill=blue!50] 
+coordinates {(60,6709.13696) (480,0)};
+\addplot+[fill=red!50] 
+coordinates {(60,896.55602) (480,0)};
+\addplot+[fill=yellow] 
+coordinates {(60,0) (480,0)};
+\addplot+[fill=red!30!gray] 
+coordinates {(60,116.8489) (480,0)};
+\end{axis}
+
+% 60 DPU vpim
+\begin{axis}[
+  %_leftylabel={Exec time (ms)},
+  %_lefty label style={at={(axis description cs:0.1,0.5)}},
+  xlabel={\#DPUs},
+  xlabel near ticks, 
+  bar shift=10pt,
+  ybar stacked,
+  ymin=0,ymax=25160,
+  symbolic x coords={60,480},%number of DPUs
+  xtick={60,480},%number of DPUs
+  ytick={6290,12580,18870},
+  bar width=8pt,
+  height=3.4cm,
+  width=3.8cm,
+  ]
+\addplot+[fill=blue!50, postaction={pattern=north east lines}] 
+coordinates {(60,7772.40562) (480,0)};
+\addplot+[fill=red!50, postaction={pattern=north east lines}] 
+coordinates {(60,914.29299) (480,0)};
+\addplot+[fill=yellow, postaction={pattern=north east lines}] 
+coordinates {(60,0) (480,0)};
+\addplot+[fill=red!30!gray, postaction={pattern=north east lines}] 
+coordinates {(60,498.2329) (480,0)};
+\end{axis}
+
+% 480 DPU native 
+\begin{axis}[
+  bar shift=-10pt,hide axis,
+  ybar stacked,
+  ymin=0,ymax=25160,
+  x tick label style={rotate=45,anchor=east},
+  symbolic x coords={60,480},%number of DPUs
+  xtick={60,480},%number of DPUs
+  ytick={6290,12580,18870},
+  bar width=8pt,
+  height=3.4cm,
+  width=3.8cm,
+  ]
+\addplot+[fill=blue!50] 
+coordinates {(60,0) (480,11880.74016)};
+\addplot+[fill=red!50] 
+coordinates {(60,0) (480,150.59499)};
+\addplot+[fill=yellow] 
+coordinates {(60,0) (480,0)};
+\addplot+[fill=red!30!gray] 
+coordinates {(60,0) (480,162.4429)};
+\end{axis}
+
+% 480 DPU vpim
+\begin{axis}[
+  hide axis,
+  ybar stacked,
+  ymin=0,ymax=25160,
+  x tick label style={rotate=45,anchor=east},
+  symbolic x coords={60,480},%number of DPUs
+  xtick={60,480},%number of DPUs
+  ytick={6290,12580,18870},
+  bar width=8pt,
+  height=3.4cm,
+  width=3.8cm,
+  ]
+\addplot+[fill=blue!50, postaction={pattern=north east lines}] 
+coordinates {(60,0) (480,17116.68396)};
+\addplot+[fill=red!50, postaction={pattern=north east lines},] 
+coordinates {(60,0) (480,202.148)};
+\addplot+[fill=yellow, postaction={pattern=north east lines},] 
+coordinates {(60,0) (480,0)};
+\addplot+[fill=red!30!gray, postaction={pattern=north east lines},] 
+coordinates {(60,0) (480,3634.783)};
+\end{axis}
+
+\node[anchor=north] at (1.2,2.4) {\texttt{SpMV}};
+\end{tikzpicture}
+%---
+\begin{tikzpicture}
+% 60 DPU native
+\begin{axis}[
+  hide axis,
+  ybar stacked,
+  ymin=0,ymax=2000,
+  %x tick label style={rotate=45,anchor=east},
+  symbolic x coords={60,480},%number of DPUs
+  xtick={60,480},%number of DPUs
+  ytick={500,1000,1500},
+  bar width=8pt,
+  height=3.4cm,
+  width=3.8cm,
+  ]
+\addplot+[fill=blue!50] 
+coordinates {(60,52.644) (480,0)};
+\addplot+[fill=red!50] 
+coordinates {(60,533.662) (480,0)};
+\addplot+[fill=yellow] 
+coordinates {(60,50.281) (480,0)};
+\addplot+[fill=red!30!gray] 
+coordinates {(60,2.219) (480,0)};
+\end{axis}
+
+% 60 DPU vpim
+\begin{axis}[
+  %_leftylabel={Exec time (ms)},
+  %_lefty label style={at={(axis description cs:0.1,0.5)}},
+  xlabel={\#DPUs},
+  xlabel near ticks, 
+  bar shift=10pt,
+  ybar stacked,
+  ymin=0,ymax=2000,
+  symbolic x coords={60,480},%number of DPUs
+  xtick={60,480},%number of DPUs
+  ytick={500,1000,1500},
+  bar width=8pt,
+  height=3.4cm,
+  width=3.8cm,
+  ]
+\addplot+[fill=blue!50, postaction={pattern=north east lines}] 
+coordinates {(60,118.553) (480,0)};
+\addplot+[fill=red!50, postaction={pattern=north east lines}] 
+coordinates {(60,655.098) (480,0)};
+\addplot+[fill=yellow, postaction={pattern=north east lines}] 
+coordinates {(60,151.991) (480,0)};
+\addplot+[fill=red!30!gray, postaction={pattern=north east lines}] 
+coordinates {(60,13.667) (480,0)};
+\end{axis}
+
+% 480 DPU native 
+\begin{axis}[
+  bar shift=-10pt,hide axis,
+  ybar stacked,
+  ymin=0,ymax=2000,
+  x tick label style={rotate=45,anchor=east},
+  symbolic x coords={60,480},%number of DPUs
+  xtick={60,480},%number of DPUs
+  ytick={500,1000,1500},
+  bar width=8pt,
+  height=3.4cm,
+  width=3.8cm,
+  ]
+\addplot+[fill=blue!50] 
+coordinates {(60,0) (480,348.392)};
+\addplot+[fill=red!50] 
+coordinates {(60,0) (480,484.285)};
+\addplot+[fill=yellow] 
+coordinates {(60,0) (480,183.197)};
+\addplot+[fill=red!30!gray] 
+coordinates {(60,0) (480,10.641)};
+\end{axis}
+
+% 480 DPU vpim
+\begin{axis}[
+  hide axis,
+  ybar stacked,
+  ymin=0,ymax=2000,
+  x tick label style={rotate=45,anchor=east},
+  symbolic x coords={60,480},%number of DPUs
+  xtick={60,480},%number of DPUs
+  ytick={500,1000,1500},
+  bar width=8pt,
+  height=3.4cm,
+  width=3.8cm,
+  ]
+\addplot+[fill=blue!50, postaction={pattern=north east lines}] 
+coordinates {(60,0) (480,436.407)};
+\addplot+[fill=red!50, postaction={pattern=north east lines},] 
+coordinates {(60,0) (480,585.098)};
+\addplot+[fill=yellow, postaction={pattern=north east lines},] 
+coordinates {(60,0) (480,579.086)};
+\addplot+[fill=red!30!gray, postaction={pattern=north east lines},] 
+coordinates {(60,0) (480,51.9)};
+\end{axis}
+
+\node[anchor=north] at (1.2,2.4) {\texttt{BFS}};
+\end{tikzpicture}
+%---
+\caption{Execution time (left axis) and the overhead (right axis) of \vpim running PrIM applications with one rank (60 DPUs) and 8 ranks (480 DPUs) using strong-scaling configuration. The execution time is segmented into four steps: data loading (CPU-DPU), task execution (DPU), synchronization (Inter-DPU), and result retrieval (DPU-CPU).}
+\label{fig:prim-results}
+\end{figure*} 
+

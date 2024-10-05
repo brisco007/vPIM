@@ -1,0 +1,202 @@
+Allocated 60 DPU(s)
+nr_elements	251658240	NR_TASKLETS	16	BL	10
+Load input data
+<HW execution thread pool> Start write to rank
+<HW execution thread pool> Time for thread_write_to_rank : 0.5847615020 sec on thread 140456018745088
+<HW execution thread pool> Time for thread_write_to_rank : 0.5944715180 sec on thread 140456001959680
+<HW execution thread pool> Time for thread_write_to_rank : 0.6013363830 sec on thread 140455985174272
+<HW execution thread pool> Time for thread_write_to_rank : 0.6046990510 sec on thread 140456035530496
+<HW execution thread pool> Time for thread_write_to_rank : 0.6135872700 sec on thread 140455993566976
+<HW execution thread pool> Time for thread_write_to_rank : 0.6138114830 sec on thread 140456027137792
+<HW execution thread pool> Time for thread_write_to_rank : 0.6541106670 sec on thread 140455976781568
+<HW execution thread pool> Time for thread_write_to_rank : 0.6543677110 sec on thread 140456010352384
+<HW execution thread pool> Time for whole xfer: 0.6546375670 sec
+<HW execution thread pool> End write to rank
+Run program on DPU(s) 
+Retrieve results
+<HW execution thread pool> Start read from rank
+<HW execution thread pool> Time for whole xfer: 0.3410911870 sec
+<HW execution thread pool> End read from rank
+<HW execution thread pool> Start read from rank
+<HW execution thread pool> Time for whole xfer: 0.3473671530 sec
+<HW execution thread pool> End read from rank
+<HW execution thread pool> Start read from rank
+<HW execution thread pool> Time for whole xfer: 0.3459613050 sec
+<HW execution thread pool> End read from rank
+<HW execution thread pool> Start read from rank
+<HW execution thread pool> Time for whole xfer: 0.3439603340 sec
+<HW execution thread pool> End read from rank
+<HW execution thread pool> Start read from rank
+<HW execution thread pool> Time for whole xfer: 0.3377197250 sec
+<HW execution thread pool> End read from rank
+<HW execution thread pool> Start read from rank
+<HW execution thread pool> Time for whole xfer: 0.3499069110 sec
+<HW execution thread pool> End read from rank
+<HW execution thread pool> Start read from rank
+<HW execution thread pool> Time for whole xfer: 0.3370134330 sec
+<HW execution thread pool> End read from rank
+<HW execution thread pool> Start read from rank
+<HW execution thread pool> Time for whole xfer: 0.3446038840 sec
+<HW execution thread pool> End read from rank
+<HW execution thread pool> Start read from rank
+<HW execution thread pool> Time for whole xfer: 0.3566910620 sec
+<HW execution thread pool> End read from rank
+<HW execution thread pool> Start read from rank
+<HW execution thread pool> Time for whole xfer: 0.3447465040 sec
+<HW execution thread pool> End read from rank
+<HW execution thread pool> Start read from rank
+<HW execution thread pool> Time for whole xfer: 0.3405270410 sec
+<HW execution thread pool> End read from rank
+<HW execution thread pool> Start read from rank
+<HW execution thread pool> Time for whole xfer: 0.3448511020 sec
+<HW execution thread pool> End read from rank
+<HW execution thread pool> Start read from rank
+<HW execution thread pool> Time for whole xfer: 0.3376860110 sec
+<HW execution thread pool> End read from rank
+<HW execution thread pool> Start read from rank
+<HW execution thread pool> Time for whole xfer: 0.3445490190 sec
+<HW execution thread pool> End read from rank
+<HW execution thread pool> Start read from rank
+<HW execution thread pool> Time for whole xfer: 0.3420568250 sec
+<HW execution thread pool> End read from rank
+<HW execution thread pool> Start read from rank
+<HW execution thread pool> Time for whole xfer: 0.3429779330 sec
+<HW execution thread pool> End read from rank
+<HW execution thread pool> Start read from rank
+<HW execution thread pool> Time for whole xfer: 0.3465009590 sec
+<HW execution thread pool> End read from rank
+<HW execution thread pool> Start read from rank
+<HW execution thread pool> Time for whole xfer: 0.3362993020 sec
+<HW execution thread pool> End read from rank
+<HW execution thread pool> Start read from rank
+<HW execution thread pool> Time for whole xfer: 0.3425586860 sec
+<HW execution thread pool> End read from rank
+<HW execution thread pool> Start read from rank
+<HW execution thread pool> Time for whole xfer: 0.3421152950 sec
+<HW execution thread pool> End read from rank
+<HW execution thread pool> Start read from rank
+<HW execution thread pool> Time for whole xfer: 0.3485316250 sec
+<HW execution thread pool> End read from rank
+<HW execution thread pool> Start read from rank
+<HW execution thread pool> Time for whole xfer: 0.3275675090 sec
+<HW execution thread pool> End read from rank
+<HW execution thread pool> Start read from rank
+<HW execution thread pool> Time for whole xfer: 0.3483348810 sec
+<HW execution thread pool> End read from rank
+<HW execution thread pool> Start read from rank
+<HW execution thread pool> Time for whole xfer: 0.3435395150 sec
+<HW execution thread pool> End read from rank
+<HW execution thread pool> Start read from rank
+<HW execution thread pool> Time for whole xfer: 0.3477303840 sec
+<HW execution thread pool> End read from rank
+<HW execution thread pool> Start read from rank
+<HW execution thread pool> Time for whole xfer: 0.3388903090 sec
+<HW execution thread pool> End read from rank
+<HW execution thread pool> Start read from rank
+<HW execution thread pool> Time for whole xfer: 0.3434870500 sec
+<HW execution thread pool> End read from rank
+<HW execution thread pool> Start read from rank
+<HW execution thread pool> Time for whole xfer: 0.3617971760 sec
+<HW execution thread pool> End read from rank
+<HW execution thread pool> Start read from rank
+<HW execution thread pool> Time for whole xfer: 0.3470820440 sec
+<HW execution thread pool> End read from rank
+<HW execution thread pool> Start read from rank
+<HW execution thread pool> Time for whole xfer: 0.3372452550 sec
+<HW execution thread pool> End read from rank
+<HW execution thread pool> Start read from rank
+<HW execution thread pool> Time for whole xfer: 0.3391421180 sec
+<HW execution thread pool> End read from rank
+<HW execution thread pool> Start read from rank
+<HW execution thread pool> Time for whole xfer: 0.3410834920 sec
+<HW execution thread pool> End read from rank
+<HW execution thread pool> Start read from rank
+<HW execution thread pool> Time for whole xfer: 0.3435037860 sec
+<HW execution thread pool> End read from rank
+<HW execution thread pool> Start read from rank
+<HW execution thread pool> Time for whole xfer: 0.3391407310 sec
+<HW execution thread pool> End read from rank
+<HW execution thread pool> Start read from rank
+<HW execution thread pool> Time for whole xfer: 0.3374406530 sec
+<HW execution thread pool> End read from rank
+<HW execution thread pool> Start read from rank
+<HW execution thread pool> Time for whole xfer: 0.3445553370 sec
+<HW execution thread pool> End read from rank
+<HW execution thread pool> Start read from rank
+<HW execution thread pool> Time for whole xfer: 0.3406307200 sec
+<HW execution thread pool> End read from rank
+<HW execution thread pool> Start read from rank
+<HW execution thread pool> Time for whole xfer: 0.3357599340 sec
+<HW execution thread pool> End read from rank
+<HW execution thread pool> Start read from rank
+<HW execution thread pool> Time for whole xfer: 0.3400779310 sec
+<HW execution thread pool> End read from rank
+<HW execution thread pool> Start read from rank
+<HW execution thread pool> Time for whole xfer: 0.3377890160 sec
+<HW execution thread pool> End read from rank
+<HW execution thread pool> Start read from rank
+<HW execution thread pool> Time for whole xfer: 0.3438799400 sec
+<HW execution thread pool> End read from rank
+<HW execution thread pool> Start read from rank
+<HW execution thread pool> Time for whole xfer: 0.3389836660 sec
+<HW execution thread pool> End read from rank
+<HW execution thread pool> Start read from rank
+<HW execution thread pool> Time for whole xfer: 0.3408064990 sec
+<HW execution thread pool> End read from rank
+<HW execution thread pool> Start read from rank
+<HW execution thread pool> Time for whole xfer: 0.3459661350 sec
+<HW execution thread pool> End read from rank
+<HW execution thread pool> Start read from rank
+<HW execution thread pool> Time for whole xfer: 0.3428222790 sec
+<HW execution thread pool> End read from rank
+<HW execution thread pool> Start read from rank
+<HW execution thread pool> Time for whole xfer: 0.3497308610 sec
+<HW execution thread pool> End read from rank
+<HW execution thread pool> Start read from rank
+<HW execution thread pool> Time for whole xfer: 0.3452648590 sec
+<HW execution thread pool> End read from rank
+<HW execution thread pool> Start read from rank
+<HW execution thread pool> Time for whole xfer: 0.3405028520 sec
+<HW execution thread pool> End read from rank
+<HW execution thread pool> Start read from rank
+<HW execution thread pool> Time for whole xfer: 0.3503475040 sec
+<HW execution thread pool> End read from rank
+<HW execution thread pool> Start read from rank
+<HW execution thread pool> Time for whole xfer: 0.3297785120 sec
+<HW execution thread pool> End read from rank
+<HW execution thread pool> Start read from rank
+<HW execution thread pool> Time for whole xfer: 0.3427212110 sec
+<HW execution thread pool> End read from rank
+<HW execution thread pool> Start read from rank
+<HW execution thread pool> Time for whole xfer: 0.3457807790 sec
+<HW execution thread pool> End read from rank
+<HW execution thread pool> Start read from rank
+<HW execution thread pool> Time for whole xfer: 0.3244887890 sec
+<HW execution thread pool> End read from rank
+<HW execution thread pool> Start read from rank
+<HW execution thread pool> Time for whole xfer: 0.3442222900 sec
+<HW execution thread pool> End read from rank
+<HW execution thread pool> Start read from rank
+<HW execution thread pool> Time for whole xfer: 0.3369338530 sec
+<HW execution thread pool> End read from rank
+<HW execution thread pool> Start read from rank
+<HW execution thread pool> Time for whole xfer: 0.3492269470 sec
+<HW execution thread pool> End read from rank
+<HW execution thread pool> Start read from rank
+<HW execution thread pool> Time for whole xfer: 0.3412496490 sec
+<HW execution thread pool> End read from rank
+<HW execution thread pool> Start read from rank
+<HW execution thread pool> Time for whole xfer: 0.3412287100 sec
+<HW execution thread pool> End read from rank
+<HW execution thread pool> Start read from rank
+<HW execution thread pool> Time for whole xfer: 0.3471526040 sec
+<HW execution thread pool> End read from rank
+<HW execution thread pool> Start read from rank
+<HW execution thread pool> Time for whole xfer: 0.3432689670 sec
+<HW execution thread pool> End read from rank
+Results: 
+	CPU-DPU: 654.927000	
+	DPU: 101.659000	
+	Inter-DPU: 2.835000	
+	DPU-CPU: 7139.231	
+[[32mOK[0m] Outputs are equal

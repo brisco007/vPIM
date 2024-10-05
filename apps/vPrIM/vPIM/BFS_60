@@ -1,0 +1,5 @@
+Comparing results with BFS executed on CPU
+Result: 
+	CPU-DPU: 3687.200000	
+	DPU: 408.525000	
+	DPU-CPU: 4185.155000	

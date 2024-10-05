@@ -1,0 +1,6 @@
+Comparing results with BFS executed on CPU
+Result: 
+	CPU-DPU: 118.553000
+	Inter-DPU: 151.991000
+	DPU: 655.098000
+	DPU-CPU: 13.667000

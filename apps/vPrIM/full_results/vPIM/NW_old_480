@@ -1,0 +1,9 @@
+Allocated 480 DPU(s)
+Allocated 16 TASKLET(s) per DPU
+Max size 5120
+Results: 
+	CPU-DPU: Time (ms): 2071.954000	
+	DPU: Time (ms): 5068.638000	
+	Inter-DPU: Time (ms): 1855.165000	
+	DPU-CPU: Time (ms): 4419.478000	
+[[32mOK[0m] Outputs are equal

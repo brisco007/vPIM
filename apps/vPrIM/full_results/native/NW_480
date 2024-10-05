@@ -1,0 +1,6 @@
+Result: 
+	CPU-DPU: 127176.049000
+	DPU: 4905.297000	
+	Inter-DPU: 97586.325000
+	DPU-CPU: 119897.164000
+[[32mOK[0m] Outputs are equal

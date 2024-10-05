@@ -1,0 +1,49 @@
+\usetikzlibrary{positioning, shapes, arrows, shadows, patterns}
+\pgfplotsset{yticklabel style={text width=2.2em}}
+\begin{figure*}
+    \centering
+    \small
+
+\makeatletter
+\newenvironment{customlegend}[1][]{%
+    \begingroup
+    % inits/clears the lists (which might be populated from previous
+    % axes):
+    \pgfplots@init@cleared@structures
+    \pgfplotsset{#1}%
+}{%
+    % draws the legend:
+    \pgfplots@createlegend
+    \endgroup
+}%
+
+\def\addlegendimage{\pgfplots@addlegendimage}
+\makeatother
+\begin{tikzpicture}
+    \begin{customlegend}
+    [legend columns=4,
+    legend style={text width=10em,text height=1.5ex, column sep=1ex},
+    legend entries={
+    native-CPU-DPU, 
+    native-DPU, 
+    native-Inter-DPU, 
+    native-DPU-CPU,
+    vPIM-CPU-DPU, 
+    vPIM-DPU, 
+    vPIM-Inter-DPU, 
+    vPIM-DPU-CPU,
+    overhead}]
+    \addlegendimage{fill=blue!50, area legend}
+    \addlegendimage{fill=red, area legend}
+    \addlegendimage{fill=yellow, area legend}
+    \addlegendimage{fill=red!50!gray, area legend}
+    
+    \addlegendimage{fill=blue!50, postaction={pattern=north east lines}, area legend}
+    \addlegendimage{fill=red, postaction={pattern=north east lines}, area legend}
+    \addlegendimage{fill=yellow, postaction={pattern=north east lines}, area legend}
+    \addlegendimage{fill=red!50!gray, postaction={pattern=north east lines}, area legend}
+    \addlegendimage{blue}
+    \end{customlegend}
+\end{tikzpicture} 
+
+\hfill

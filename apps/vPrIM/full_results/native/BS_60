@@ -1,0 +1,102 @@
+Repeat: 4
+<HW execution thread pool> Start write to rank
+<HW execution thread pool> Time for thread_write_to_rank : 0.2503970160 sec on thread 140517211129600
+<HW execution thread pool> Time for thread_write_to_rank : 0.2503849420 sec on thread 140517244700416
+<HW execution thread pool> Time for thread_write_to_rank : 0.2502891720 sec on thread 140517269878528
+<HW execution thread pool> Time for thread_write_to_rank : 0.2502406810 sec on thread 140517261485824
+<HW execution thread pool> Time for thread_write_to_rank : 0.2503839290 sec on thread 140517253093120
+<HW execution thread pool> Time for thread_write_to_rank : 0.2502393330 sec on thread 140517219522304
+<HW execution thread pool> Time for thread_write_to_rank : 0.2503825770 sec on thread 140517227915008
+<HW execution thread pool> Time for thread_write_to_rank : 0.2531649960 sec on thread 140517236307712
+<HW execution thread pool> Time for whole xfer: 0.2535020740 sec
+<HW execution thread pool> End write to rank
+<HW execution thread pool> Start write to rank
+<HW execution thread pool> Time for thread_write_to_rank : 0.0362989920 sec on thread 140517244700416
+<HW execution thread pool> Time for thread_write_to_rank : 0.0363926030 sec on thread 140517253093120
+<HW execution thread pool> Time for thread_write_to_rank : 0.0366231780 sec on thread 140517236307712
+<HW execution thread pool> Time for thread_write_to_rank : 0.0368714160 sec on thread 140517219522304
+<HW execution thread pool> Time for thread_write_to_rank : 0.0369841930 sec on thread 140517211129600
+<HW execution thread pool> Time for thread_write_to_rank : 0.0372404630 sec on thread 140517261485824
+<HW execution thread pool> Time for thread_write_to_rank : 0.0374265930 sec on thread 140517269878528
+<HW execution thread pool> Time for thread_write_to_rank : 0.0398249050 sec on thread 140517227915008
+<HW execution thread pool> Time for whole xfer: 0.0398904040 sec
+<HW execution thread pool> End write to rank
+CPU-DPU parallel: 24,16388608,2237056
+DPU-CPU parallel: 128
+<HW execution thread pool> Start write to rank
+<HW execution thread pool> Time for thread_write_to_rank : 0.2503723380 sec on thread 140517236307712
+<HW execution thread pool> Time for thread_write_to_rank : 0.2504536950 sec on thread 140517261485824
+<HW execution thread pool> Time for thread_write_to_rank : 0.2503608040 sec on thread 140517244700416
+<HW execution thread pool> Time for thread_write_to_rank : 0.2503733540 sec on thread 140517269878528
+<HW execution thread pool> Time for thread_write_to_rank : 0.2504445750 sec on thread 140517219522304
+<HW execution thread pool> Time for thread_write_to_rank : 0.2504172950 sec on thread 140517227915008
+<HW execution thread pool> Time for thread_write_to_rank : 0.2562339390 sec on thread 140517211129600
+<HW execution thread pool> Time for thread_write_to_rank : 0.2646935400 sec on thread 140517253093120
+<HW execution thread pool> Time for whole xfer: 0.2647843670 sec
+<HW execution thread pool> End write to rank
+<HW execution thread pool> Start write to rank
+<HW execution thread pool> Time for thread_write_to_rank : 0.0382484390 sec on thread 140517211129600
+<HW execution thread pool> Time for thread_write_to_rank : 0.0387616570 sec on thread 140517253093120
+<HW execution thread pool> Time for thread_write_to_rank : 0.0392775140 sec on thread 140517244700416
+<HW execution thread pool> Time for thread_write_to_rank : 0.0394421740 sec on thread 140517236307712
+<HW execution thread pool> Time for thread_write_to_rank : 0.0397803960 sec on thread 140517219522304
+<HW execution thread pool> Time for thread_write_to_rank : 0.0400447480 sec on thread 140517261485824
+<HW execution thread pool> Time for thread_write_to_rank : 0.0402179750 sec on thread 140517269878528
+<HW execution thread pool> Time for thread_write_to_rank : 0.0403701130 sec on thread 140517227915008
+<HW execution thread pool> Time for whole xfer: 0.0403993510 sec
+<HW execution thread pool> End write to rank
+CPU-DPU parallel: 24,16388608,2237056
+DPU-CPU parallel: 128
+<HW execution thread pool> Start write to rank
+<HW execution thread pool> Time for thread_write_to_rank : 0.2504005640 sec on thread 140517253093120
+<HW execution thread pool> Time for thread_write_to_rank : 0.2504258740 sec on thread 140517261485824
+<HW execution thread pool> Time for thread_write_to_rank : 0.2503676720 sec on thread 140517236307712
+<HW execution thread pool> Time for thread_write_to_rank : 0.2503676840 sec on thread 140517227915008
+<HW execution thread pool> Time for thread_write_to_rank : 0.2504159670 sec on thread 140517211129600
+<HW execution thread pool> Time for thread_write_to_rank : 0.2503675970 sec on thread 140517219522304
+<HW execution thread pool> Time for thread_write_to_rank : 0.2503679490 sec on thread 140517269878528
+<HW execution thread pool> Time for thread_write_to_rank : 0.2503863580 sec on thread 140517244700416
+<HW execution thread pool> Time for whole xfer: 0.2505824180 sec
+<HW execution thread pool> End write to rank
+<HW execution thread pool> Start write to rank
+<HW execution thread pool> Time for thread_write_to_rank : 0.0354099780 sec on thread 140517244700416
+<HW execution thread pool> Time for thread_write_to_rank : 0.0355419810 sec on thread 140517253093120
+<HW execution thread pool> Time for thread_write_to_rank : 0.0358578860 sec on thread 140517236307712
+<HW execution thread pool> Time for thread_write_to_rank : 0.0361443010 sec on thread 140517211129600
+<HW execution thread pool> Time for thread_write_to_rank : 0.0362093020 sec on thread 140517219522304
+<HW execution thread pool> Time for thread_write_to_rank : 0.0392926950 sec on thread 140517227915008
+<HW execution thread pool> Time for thread_write_to_rank : 0.0456778140 sec on thread 140517269878528
+<HW execution thread pool> Time for thread_write_to_rank : 0.0457624200 sec on thread 140517261485824
+<HW execution thread pool> Time for whole xfer: 0.0458432550 sec
+<HW execution thread pool> End write to rank
+CPU-DPU parallel: 24,16388608,2237056
+DPU-CPU parallel: 128
+<HW execution thread pool> Start write to rank
+<HW execution thread pool> Time for thread_write_to_rank : 0.2504479330 sec on thread 140517211129600
+<HW execution thread pool> Time for thread_write_to_rank : 0.2503853420 sec on thread 140517244700416
+<HW execution thread pool> Time for thread_write_to_rank : 0.2503829860 sec on thread 140517253093120
+<HW execution thread pool> Time for thread_write_to_rank : 0.2503779470 sec on thread 140517236307712
+<HW execution thread pool> Time for thread_write_to_rank : 0.2503753990 sec on thread 140517219522304
+<HW execution thread pool> Time for thread_write_to_rank : 0.2605372540 sec on thread 140517227915008
+<HW execution thread pool> Time for thread_write_to_rank : 0.2656593690 sec on thread 140517261485824
+<HW execution thread pool> Time for thread_write_to_rank : 0.2750774630 sec on thread 140517269878528
+<HW execution thread pool> Time for whole xfer: 0.2751472770 sec
+<HW execution thread pool> End write to rank
+<HW execution thread pool> Start write to rank
+<HW execution thread pool> Time for thread_write_to_rank : 0.0373869010 sec on thread 140517269878528
+<HW execution thread pool> Time for thread_write_to_rank : 0.0376514940 sec on thread 140517244700416
+<HW execution thread pool> Time for thread_write_to_rank : 0.0381053570 sec on thread 140517261485824
+<HW execution thread pool> Time for thread_write_to_rank : 0.0381553620 sec on thread 140517227915008
+<HW execution thread pool> Time for thread_write_to_rank : 0.0383284360 sec on thread 140517219522304
+<HW execution thread pool> Time for thread_write_to_rank : 0.0399834450 sec on thread 140517253093120
+<HW execution thread pool> Time for thread_write_to_rank : 0.0404281620 sec on thread 140517211129600
+<HW execution thread pool> Time for thread_write_to_rank : 0.0430284240 sec on thread 140517236307712
+<HW execution thread pool> Time for whole xfer: 0.0430956850 sec
+<HW execution thread pool> End write to rank
+CPU-DPU parallel: 24,16388608,2237056
+DPU-CPU parallel: 128
+Results: 
+	CPU-DPU: 307.174000	
+	DPU: 8127.989667	
+	DPU-CPU: 1.026333	
+[[32mOK[0m] results are equal

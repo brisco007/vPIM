@@ -1,0 +1,21 @@
+Repeat: 4
+CPU-DPU parallel: 16,565248,4096
+Inter-DPU parallel: 552, 4096, 565248, 552, 4096, 565248
+DPU-CPU parallel: 552
+CPU-DPU parallel: 16,565248,4096
+Inter-DPU parallel: 552, 4096, 565248, 552, 4096, 565248
+DPU-CPU parallel: 552
+CPU-DPU parallel: 16,565248,4096
+Inter-DPU parallel: 552, 4096, 565248, 552, 4096, 565248
+DPU-CPU parallel: 552
+CPU-DPU parallel: 16,565248,4096
+Inter-DPU parallel: 552, 4096, 565248, 552, 4096, 565248
+DPU-CPU parallel: 552
+Result: 
+	CPU-DPU: 15.085000	
+	DPU: 18.199667	
+	Inter-DPU: 25.428000	
+	DPU-CPU: 0.204667	
+
+
+[[32mOK[0m] Outputs are equal

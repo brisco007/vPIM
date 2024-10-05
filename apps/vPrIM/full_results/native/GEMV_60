@@ -1,0 +1,89 @@
+<HW execution thread pool> Start write to rank
+<HW execution thread pool> Time for thread_write_to_rank : 0.7291519590 sec on thread 140318254380800
+<HW execution thread pool> Time for thread_write_to_rank : 0.7375423290 sec on thread 140318245988096
+<HW execution thread pool> Time for thread_write_to_rank : 0.7379385460 sec on thread 140318271166208
+<HW execution thread pool> Time for thread_write_to_rank : 0.7527367980 sec on thread 140318212417280
+<HW execution thread pool> Time for thread_write_to_rank : 0.7554168610 sec on thread 140318237595392
+<HW execution thread pool> Time for thread_write_to_rank : 0.7618985920 sec on thread 140318262773504
+<HW execution thread pool> Time for thread_write_to_rank : 0.7672573530 sec on thread 140318229202688
+<HW execution thread pool> Time for thread_write_to_rank : 0.7712503510 sec on thread 140318220809984
+<HW execution thread pool> Time for whole xfer: 0.7715314850 sec
+<HW execution thread pool> End write to rank
+<HW execution thread pool> Start write to rank
+<HW execution thread pool> Time for thread_write_to_rank : 0.0005010760 sec on thread 140318262773504
+<HW execution thread pool> Time for thread_write_to_rank : 0.0004967320 sec on thread 140318271166208
+<HW execution thread pool> Time for thread_write_to_rank : 0.0007612550 sec on thread 140318245988096
+<HW execution thread pool> Time for thread_write_to_rank : 0.0009106580 sec on thread 140318254380800
+<HW execution thread pool> Time for whole xfer: 0.0009562840 sec
+<HW execution thread pool> End write to rank
+<HW execution thread pool> Start read from rank
+<HW execution thread pool> Time for whole xfer: 0.0013099500 sec
+<HW execution thread pool> End read from rank
+<HW execution thread pool> Start write to rank
+<HW execution thread pool> Time for thread_write_to_rank : 0.7320296770 sec on thread 140318254380800
+<HW execution thread pool> Time for thread_write_to_rank : 0.7351255230 sec on thread 140318237595392
+<HW execution thread pool> Time for thread_write_to_rank : 0.7416440640 sec on thread 140318271166208
+<HW execution thread pool> Time for thread_write_to_rank : 0.7417817960 sec on thread 140318220809984
+<HW execution thread pool> Time for thread_write_to_rank : 0.7428068370 sec on thread 140318245988096
+<HW execution thread pool> Time for thread_write_to_rank : 0.7495203580 sec on thread 140318212417280
+<HW execution thread pool> Time for thread_write_to_rank : 0.7546437920 sec on thread 140318262773504
+<HW execution thread pool> Time for thread_write_to_rank : 0.7951515960 sec on thread 140318229202688
+<HW execution thread pool> Time for whole xfer: 0.7952294280 sec
+<HW execution thread pool> End write to rank
+<HW execution thread pool> Start write to rank
+<HW execution thread pool> Time for thread_write_to_rank : 0.0005087350 sec on thread 140318254380800
+<HW execution thread pool> Time for thread_write_to_rank : 0.0005551160 sec on thread 140318262773504
+<HW execution thread pool> Time for thread_write_to_rank : 0.0006331510 sec on thread 140318271166208
+<HW execution thread pool> Time for thread_write_to_rank : 0.0009099890 sec on thread 140318245988096
+<HW execution thread pool> Time for whole xfer: 0.0009847860 sec
+<HW execution thread pool> End write to rank
+<HW execution thread pool> Start read from rank
+<HW execution thread pool> Time for whole xfer: 0.0013490930 sec
+<HW execution thread pool> End read from rank
+<HW execution thread pool> Start write to rank
+<HW execution thread pool> Time for thread_write_to_rank : 0.7313232940 sec on thread 140318254380800
+<HW execution thread pool> Time for thread_write_to_rank : 0.7388959840 sec on thread 140318220809984
+<HW execution thread pool> Time for thread_write_to_rank : 0.7395658050 sec on thread 140318245988096
+<HW execution thread pool> Time for thread_write_to_rank : 0.7395826380 sec on thread 140318271166208
+<HW execution thread pool> Time for thread_write_to_rank : 0.7423338460 sec on thread 140318237595392
+<HW execution thread pool> Time for thread_write_to_rank : 0.7511314320 sec on thread 140318262773504
+<HW execution thread pool> Time for thread_write_to_rank : 0.7541391100 sec on thread 140318229202688
+<HW execution thread pool> Time for thread_write_to_rank : 0.7772471980 sec on thread 140318212417280
+<HW execution thread pool> Time for whole xfer: 0.7773296280 sec
+<HW execution thread pool> End write to rank
+<HW execution thread pool> Start write to rank
+<HW execution thread pool> Time for thread_write_to_rank : 0.0004901840 sec on thread 140318254380800
+<HW execution thread pool> Time for thread_write_to_rank : 0.0004986620 sec on thread 140318262773504
+<HW execution thread pool> Time for thread_write_to_rank : 0.0005414410 sec on thread 140318271166208
+<HW execution thread pool> Time for thread_write_to_rank : 0.0009281230 sec on thread 140318245988096
+<HW execution thread pool> Time for whole xfer: 0.0009775290 sec
+<HW execution thread pool> End write to rank
+<HW execution thread pool> Start read from rank
+<HW execution thread pool> Time for whole xfer: 0.0012877810 sec
+<HW execution thread pool> End read from rank
+<HW execution thread pool> Start write to rank
+<HW execution thread pool> Time for thread_write_to_rank : 0.7265462260 sec on thread 140318254380800
+<HW execution thread pool> Time for thread_write_to_rank : 0.7401959440 sec on thread 140318237595392
+<HW execution thread pool> Time for thread_write_to_rank : 0.7427416740 sec on thread 140318271166208
+<HW execution thread pool> Time for thread_write_to_rank : 0.7468189190 sec on thread 140318245988096
+<HW execution thread pool> Time for thread_write_to_rank : 0.7546271590 sec on thread 140318262773504
+<HW execution thread pool> Time for thread_write_to_rank : 0.7742062430 sec on thread 140318220809984
+<HW execution thread pool> Time for thread_write_to_rank : 0.7889011280 sec on thread 140318229202688
+<HW execution thread pool> Time for thread_write_to_rank : 0.8059596560 sec on thread 140318212417280
+<HW execution thread pool> Time for whole xfer: 0.8060343850 sec
+<HW execution thread pool> End write to rank
+<HW execution thread pool> Start write to rank
+<HW execution thread pool> Time for thread_write_to_rank : 0.0005727630 sec on thread 140318262773504
+<HW execution thread pool> Time for thread_write_to_rank : 0.0009296950 sec on thread 140318245988096
+<HW execution thread pool> Time for thread_write_to_rank : 0.0009410470 sec on thread 140318271166208
+<HW execution thread pool> Time for thread_write_to_rank : 0.0010944660 sec on thread 140318254380800
+<HW execution thread pool> Time for whole xfer: 0.0011362650 sec
+<HW execution thread pool> End write to rank
+<HW execution thread pool> Start read from rank
+<HW execution thread pool> Time for whole xfer: 0.0012926430 sec
+<HW execution thread pool> End read from rank
+Results: 
+	CPU-DPU: 794.266667	
+	DPU: 623.752667	
+	DPU-CPU: 1.524333	
+[[32mOK[0m] Outputs are equal

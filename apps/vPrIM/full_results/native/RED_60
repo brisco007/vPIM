@@ -1,0 +1,21 @@
+Allocated 60 DPU(s)
+nr_elements	419430400	NR_TASKLETS	16	BL	10
+Load input data
+<HW execution thread pool> Start write to rank
+<HW execution thread pool> Time for thread_write_to_rank : 0.9998429570 sec on thread 139747939993344
+<HW execution thread pool> Time for thread_write_to_rank : 1.0000975330 sec on thread 139747956778752
+<HW execution thread pool> Time for thread_write_to_rank : 1.0184500040 sec on thread 139747931600640
+<HW execution thread pool> Time for thread_write_to_rank : 1.0229702460 sec on thread 139747948386048
+<HW execution thread pool> Time for thread_write_to_rank : 1.0245319360 sec on thread 139747981956864
+<HW execution thread pool> Time for thread_write_to_rank : 1.0263520210 sec on thread 139747990349568
+<HW execution thread pool> Time for thread_write_to_rank : 1.0315046840 sec on thread 139747965171456
+<HW execution thread pool> Time for thread_write_to_rank : 1.0411231800 sec on thread 139747973564160
+<HW execution thread pool> Time for whole xfer: 1.0414228580 sec
+<HW execution thread pool> End write to rank
+Run program on DPU(s) 
+Retrieve results
+Results: 
+	CPU-DPU: 1041.612000	
+	DPU: 164.529000	
+	Inter-DPU: 1.893000	
+[[32mOK[0m] Outputs are equal

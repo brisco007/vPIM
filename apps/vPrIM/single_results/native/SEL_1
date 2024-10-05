@@ -1,0 +1,12 @@
+Allocated 1 DPU(s)
+nr_elements	3932160	NR_TASKLETS	16	BL	10
+Load input data
+Run program on DPU(s) 
+Retrieve results
+15728640
+Results: 
+	CPU-DPU: 395.900000	
+	DPU: 138.007000	
+	Inter-DPU: 0.083000	
+	DPU-CPU: 118.864000	
+[[32mOK[0m] Outputs are equal

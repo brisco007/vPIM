@@ -1,0 +1,12 @@
+Repeat: 1
+CPU-DPU parallel: 16,41963520,30720
+Inter-DPU parallel: 5464, 30720, 41963520, 5464, 30720, 41963520
+DPU-CPU parallel: 5464
+Result: 
+	CPU: 1042.108000	
+	DPU: 487.167000	
+	Inter-DPU: 1042.746000	
+	DPU-CPU: 0.377000	
+
+
+[[32mOK[0m] Outputs are equal

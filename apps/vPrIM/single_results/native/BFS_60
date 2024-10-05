@@ -1,0 +1,66 @@
+DPU 0 Partition Nodes 221, Size 151576 
+DPU 1 Partition Nodes 224, Size 141200 
+DPU 2 Partition Nodes 181, Size 141096 
+DPU 3 Partition Nodes 524, Size 144008 
+DPU 4 Partition Nodes 447, Size 142600 
+DPU 5 Partition Nodes 432, Size 142880 
+DPU 6 Partition Nodes 370, Size 142184 
+DPU 7 Partition Nodes 1253, Size 148784 
+DPU 8 Partition Nodes 452, Size 143160 
+DPU 9 Partition Nodes 594, Size 143704 
+DPU 10 Partition Nodes 712, Size 144456 
+DPU 11 Partition Nodes 626, Size 143976 
+DPU 12 Partition Nodes 841, Size 145072 
+DPU 13 Partition Nodes 812, Size 144848 
+DPU 14 Partition Nodes 1193, Size 147160 
+DPU 15 Partition Nodes 1190, Size 147032 
+DPU 16 Partition Nodes 1203, Size 147224 
+DPU 17 Partition Nodes 1428, Size 148488 
+DPU 18 Partition Nodes 2012, Size 152464 
+DPU 19 Partition Nodes 3136, Size 159936 
+DPU 20 Partition Nodes 3284, Size 160456 
+DPU 21 Partition Nodes 2096, Size 152928 
+DPU 22 Partition Nodes 1631, Size 149912 
+DPU 23 Partition Nodes 2230, Size 153584 
+DPU 24 Partition Nodes 2677, Size 156304 
+DPU 25 Partition Nodes 1792, Size 150704 
+DPU 26 Partition Nodes 2934, Size 157784 
+DPU 27 Partition Nodes 2424, Size 154960 
+DPU 28 Partition Nodes 1913, Size 151488 
+DPU 29 Partition Nodes 1600, Size 149624 
+DPU 30 Partition Nodes 1994, Size 151912 
+DPU 31 Partition Nodes 2281, Size 153768 
+DPU 32 Partition Nodes 2878, Size 157744 
+DPU 33 Partition Nodes 2662, Size 156296 
+DPU 34 Partition Nodes 2181, Size 153072 
+DPU 35 Partition Nodes 2368, Size 154360 
+DPU 36 Partition Nodes 2021, Size 152016 
+DPU 37 Partition Nodes 2976, Size 158016 
+DPU 38 Partition Nodes 3583, Size 162056 
+DPU 39 Partition Nodes 4190, Size 165760 
+DPU 40 Partition Nodes 4355, Size 166528 
+DPU 41 Partition Nodes 5132, Size 171480 
+DPU 42 Partition Nodes 5033, Size 170824 
+DPU 43 Partition Nodes 5235, Size 172424 
+DPU 44 Partition Nodes 3945, Size 164000 
+DPU 45 Partition Nodes 4756, Size 169664 
+DPU 46 Partition Nodes 3650, Size 162400 
+DPU 47 Partition Nodes 3902, Size 163984 
+DPU 48 Partition Nodes 3995, Size 164400 
+DPU 49 Partition Nodes 4984, Size 170752 
+DPU 50 Partition Nodes 6601, Size 181520 
+DPU 51 Partition Nodes 8375, Size 193296 
+DPU 52 Partition Nodes 7076, Size 185424 
+DPU 53 Partition Nodes 6013, Size 178232 
+DPU 54 Partition Nodes 7420, Size 187216 
+DPU 55 Partition Nodes 8749, Size 196848 
+DPU 56 Partition Nodes 9235, Size 200128 
+DPU 57 Partition Nodes 8259, Size 193456 
+DPU 58 Partition Nodes 11227, Size 215544 
+DPU 59 Partition Nodes 11500, Size 219256 
+Comparing results with BFS executed on CPU
+Result: 
+	CPU-DPU: 238.291000	
+	Inter-DPU: 844.453000	
+	DPU: 238.661000	
+	DPU-CPU: 531.442000	

@@ -1,0 +1,117 @@
+\begin{tikzpicture}
+% 1 DPU native
+\begin{axis}[
+  hide axis,
+  ybar stacked,
+  ymin=0,ymax=#ymax,
+  %x tick label style={rotate=45,anchor=east},
+  symbolic x coords={1,60},%number of DPUs
+  xtick={1,60},%number of DPUs
+  ytick={#y1,#y2,#y3},
+  bar width=8pt,
+  height=4cm,
+  width=3.65cm,
+  ]
+\addplot+[fill=blue!50] 
+coordinates {(1,#CPU-DPU-1-native) (60,0)};
+\addplot+[fill=red!50] 
+coordinates {(1,#DPUKernel-1-native) (60,0)};
+\addplot+[fill=yellow] 
+coordinates {(1,#InterDPU-1-native) (60,0)};
+\addplot+[fill=red!30!gray] 
+coordinates {(1,#DPU-CPU-1-native) (60,0)};
+\end{axis}
+
+% 1 DPU vpim
+\begin{axis}[
+  %_leftylabel={Exec time (ms)},
+  %_lefty label style={at={(axis description cs:0.1,0.5)}},
+  %_downxlabel={\#Versions},
+  xlabel near ticks, 
+  bar shift=10pt,
+  ybar stacked,
+  ymin=0,ymax=#ymax,
+  symbolic x coords={1,60},%number of DPUs
+  xtick={1,60},%number of DPUs
+  ytick={#y1,#y2,#y3},
+  bar width=8pt,
+  height=4cm,
+  width=3.65cm,
+  ]
+\addplot+[fill=blue!50, postaction={pattern=north east lines}] 
+coordinates {(1,#CPU-DPU-1-vpim) (60,0)};
+\addplot+[fill=red!50, postaction={pattern=north east lines}] 
+coordinates {(1,#DPUKernel-1-vpim) (60,0)};
+\addplot+[fill=yellow, postaction={pattern=north east lines}] 
+coordinates {(1,#InterDPU-1-vpim) (60,0)};
+\addplot+[fill=red!30!gray, postaction={pattern=north east lines}] 
+coordinates {(1,#DPU-CPU-1-vpim) (60,0)};
+\end{axis}
+
+% 60 DPU native 
+\begin{axis}[
+  bar shift=-10pt,hide axis,
+  ybar stacked,
+  ymin=0,ymax=#ymax,
+  x tick label style={rotate=45,anchor=east},
+  symbolic x coords={1,60},%number of DPUs
+  xtick={1,60},%number of DPUs
+  ytick={#y1,#y2,#y3},
+  bar width=8pt,
+  height=4cm,
+  width=3.65cm,
+  ]
+\addplot+[fill=blue!50] 
+coordinates {(1,0) (60,#CPU-DPU-60-native)};
+\addplot+[fill=red!50] 
+coordinates {(1,0) (60,#DPUKernel-60-native)};
+\addplot+[fill=yellow] 
+coordinates {(1,0) (60,#InterDPU-60-native)};
+\addplot+[fill=red!30!gray] 
+coordinates {(1,0) (60,#DPU-CPU-60-native)};
+\end{axis}
+
+% 60 DPU vpim
+\begin{axis}[
+  hide axis,
+  ybar stacked,
+  ymin=0,ymax=#ymax,
+  x tick label style={rotate=45,anchor=east},
+  symbolic x coords={1,60},%number of DPUs
+  xtick={1,60},%number of DPUs
+  ytick={#y1,#y2,#y3},
+  bar width=8pt,
+  height=4cm,
+  width=3.65cm,
+  ]
+\addplot+[fill=blue!50, postaction={pattern=north east lines}] 
+coordinates {(1,0) (60,#CPU-DPU-60-vpim)};
+\addplot+[fill=red!50, postaction={pattern=north east lines},] 
+coordinates {(1,0) (60,#DPUKernel-60-vpim)};
+\addplot+[fill=yellow, postaction={pattern=north east lines},] 
+coordinates {(1,0) (60,#InterDPU-60-vpim)};
+\addplot+[fill=red!30!gray, postaction={pattern=north east lines},] 
+coordinates {(1,0) (60,#DPU-CPU-60-vpim)};
+\end{axis}
+
+
+\begin{axis}[
+  axis y line*=right,
+  axis x line=none,
+  ymin=#overhead_min, ymax=#overhead_max,
+  %_rightylabel near ticks,
+  %_rightylabel=Overhead,
+  xtick=data,%number of DPUs
+  extra x ticks={1, 8, 55, 60},
+  ytick={#overhead_1,#overhead_60},
+  height=4cm,
+  width=3.65cm,
+]
+\addplot+[smooth,mark=*,blue]
+  coordinates{(8,#overhead_1) (55,#overhead_60)}; 
+\addplot[draw=none]
+  coordinates{(1,0) (60,0)}; 
+\end{axis}
+
+\node[anchor=north] at (1.2,2.4) {\texttt{#type}};
+\end{tikzpicture}

@@ -1,0 +1,5 @@
+Results: 
+	CPU-DPU: Time (ms): 448949.127000	
+	DPU: 14403.779000	
+	DPU-CPU: Time (ms): 9131.206000	
+[[32mOK[0m] Outputs are equal

@@ -1,0 +1,3 @@
+\caption{Execution time (left axis) and the overhead (right axis) of \vpim running PrIM applications with one rank (60 DPUs) and 8 ranks (480 DPUs) using strong-scaling configuration. The execution time is segmented into four steps: data loading (CPU-DPU), task execution (DPU), synchronization (Inter-DPU), and result retrieval (DPU-CPU).}
+\label{fig:prim-results}
+\end{figure*} 

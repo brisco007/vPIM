@@ -1,0 +1,13 @@
+Repeat: 3
+CPU-DPU parallel: 1024,1131520,1131520,1131520
+DPU-CPU parallel: 256
+CPU-DPU parallel: 1024,1131520,1131520,1131520
+DPU-CPU parallel: 256
+CPU-DPU parallel: 1024,1131520,1131520,1131520
+DPU-CPU parallel: 256
+Results: 
+	CPU-DPU: 205.777333	
+	DPU: 5847.543333	
+	Inter-DPU: 0.000000	
+	DPU-CPU: 72.660000	
+[[32mOK[0m] results are equal

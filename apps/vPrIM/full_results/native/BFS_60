@@ -1,0 +1,16 @@
+Processing level: 0
+Processing level: 1
+Processing level: 2
+Processing level: 3
+Processing level: 4
+Processing level: 5
+Processing level: 6
+Processing level: 7
+Processing level: 8
+Processing level: 9
+Comparing results with BFS executed on CPU
+Result: 
+	CPU-DPU: 52.644000
+	Inter-DPU: 50.281000
+	DPU: 533.662000
+	DPU-CPU: 2.219000

@@ -1,0 +1,9 @@
+Allocated 1 DPU(s)
+Allocated 16 TASKLET(s) per DPU
+Max size 2560
+Results: 
+	CPU-DPU: 774.663000
+	DPU: 1452.973000
+	Inter-DPU: 0.334000
+	DPU-CPU: 7426.787000
+[[32mOK[0m] Outputs are equal

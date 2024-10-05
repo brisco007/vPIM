@@ -1,0 +1,199 @@
+nr_elements	3221225472	NR_TASKLETS	16
+M_	12288, m	16, N_	2048, n	8
+Allocated 64 DPU(s)
+Load input data (step 1)
+hre is M*m 196608
+Run step 2 on DPU(s) 
+Run step 3 on DPU(s) 
+Retrieve results
+Allocated 64 DPU(s)
+Load input data (step 1)
+hre is M*m 196608
+Run step 2 on DPU(s) 
+Run step 3 on DPU(s) 
+Retrieve results
+Allocated 64 DPU(s)
+Load input data (step 1)
+hre is M*m 196608
+Run step 2 on DPU(s) 
+Run step 3 on DPU(s) 
+Retrieve results
+Allocated 64 DPU(s)
+Load input data (step 1)
+hre is M*m 196608
+Run step 2 on DPU(s) 
+Run step 3 on DPU(s) 
+Retrieve results
+Allocated 64 DPU(s)
+Load input data (step 1)
+hre is M*m 196608
+Run step 2 on DPU(s) 
+Run step 3 on DPU(s) 
+Retrieve results
+Allocated 64 DPU(s)
+Load input data (step 1)
+hre is M*m 196608
+Run step 2 on DPU(s) 
+Run step 3 on DPU(s) 
+Retrieve results
+Allocated 64 DPU(s)
+Load input data (step 1)
+hre is M*m 196608
+Run step 2 on DPU(s) 
+Run step 3 on DPU(s) 
+Retrieve results
+Allocated 64 DPU(s)
+Load input data (step 1)
+hre is M*m 196608
+Run step 2 on DPU(s) 
+Run step 3 on DPU(s) 
+Retrieve results
+Allocated 64 DPU(s)
+Load input data (step 1)
+hre is M*m 196608
+Run step 2 on DPU(s) 
+Run step 3 on DPU(s) 
+Retrieve results
+Allocated 64 DPU(s)
+Load input data (step 1)
+hre is M*m 196608
+Run step 2 on DPU(s) 
+Run step 3 on DPU(s) 
+Retrieve results
+Allocated 64 DPU(s)
+Load input data (step 1)
+hre is M*m 196608
+Run step 2 on DPU(s) 
+Run step 3 on DPU(s) 
+Retrieve results
+Allocated 64 DPU(s)
+Load input data (step 1)
+hre is M*m 196608
+Run step 2 on DPU(s) 
+Run step 3 on DPU(s) 
+Retrieve results
+Allocated 64 DPU(s)
+Load input data (step 1)
+hre is M*m 196608
+Run step 2 on DPU(s) 
+Run step 3 on DPU(s) 
+Retrieve results
+Allocated 64 DPU(s)
+Load input data (step 1)
+hre is M*m 196608
+Run step 2 on DPU(s) 
+Run step 3 on DPU(s) 
+Retrieve results
+Allocated 64 DPU(s)
+Load input data (step 1)
+hre is M*m 196608
+Run step 2 on DPU(s) 
+Run step 3 on DPU(s) 
+Retrieve results
+Allocated 64 DPU(s)
+Load input data (step 1)
+hre is M*m 196608
+Run step 2 on DPU(s) 
+Run step 3 on DPU(s) 
+Retrieve results
+Allocated 64 DPU(s)
+Load input data (step 1)
+hre is M*m 196608
+Run step 2 on DPU(s) 
+Run step 3 on DPU(s) 
+Retrieve results
+Allocated 64 DPU(s)
+Load input data (step 1)
+hre is M*m 196608
+Run step 2 on DPU(s) 
+Run step 3 on DPU(s) 
+Retrieve results
+Allocated 64 DPU(s)
+Load input data (step 1)
+hre is M*m 196608
+Run step 2 on DPU(s) 
+Run step 3 on DPU(s) 
+Retrieve results
+Allocated 64 DPU(s)
+Load input data (step 1)
+hre is M*m 196608
+Run step 2 on DPU(s) 
+Run step 3 on DPU(s) 
+Retrieve results
+Allocated 64 DPU(s)
+Load input data (step 1)
+hre is M*m 196608
+Run step 2 on DPU(s) 
+Run step 3 on DPU(s) 
+Retrieve results
+Allocated 64 DPU(s)
+Load input data (step 1)
+hre is M*m 196608
+Run step 2 on DPU(s) 
+Run step 3 on DPU(s) 
+Retrieve results
+Allocated 64 DPU(s)
+Load input data (step 1)
+hre is M*m 196608
+Run step 2 on DPU(s) 
+Run step 3 on DPU(s) 
+Retrieve results
+Allocated 64 DPU(s)
+Load input data (step 1)
+hre is M*m 196608
+Run step 2 on DPU(s) 
+Run step 3 on DPU(s) 
+Retrieve results
+Allocated 64 DPU(s)
+Load input data (step 1)
+hre is M*m 196608
+Run step 2 on DPU(s) 
+Run step 3 on DPU(s) 
+Retrieve results
+Allocated 64 DPU(s)
+Load input data (step 1)
+hre is M*m 196608
+Run step 2 on DPU(s) 
+Run step 3 on DPU(s) 
+Retrieve results
+Allocated 64 DPU(s)
+Load input data (step 1)
+hre is M*m 196608
+Run step 2 on DPU(s) 
+Run step 3 on DPU(s) 
+Retrieve results
+Allocated 64 DPU(s)
+Load input data (step 1)
+hre is M*m 196608
+Run step 2 on DPU(s) 
+Run step 3 on DPU(s) 
+Retrieve results
+Allocated 64 DPU(s)
+Load input data (step 1)
+hre is M*m 196608
+Run step 2 on DPU(s) 
+Run step 3 on DPU(s) 
+Retrieve results
+Allocated 64 DPU(s)
+Load input data (step 1)
+hre is M*m 196608
+Run step 2 on DPU(s) 
+Run step 3 on DPU(s) 
+Retrieve results
+Allocated 64 DPU(s)
+Load input data (step 1)
+hre is M*m 196608
+Run step 2 on DPU(s) 
+Run step 3 on DPU(s) 
+Retrieve results
+Allocated 64 DPU(s)
+Load input data (step 1)
+hre is M*m 196608
+Run step 2 on DPU(s) 
+Run step 3 on DPU(s) 
+Retrieve results
+Results: 
+	CPU-DPU: 652182.658000
+	DPU: 12653.508000	
+	DPU-CPU: 16309.140000
+[[32mOK[0m] Outputs are equal
