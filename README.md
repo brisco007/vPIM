@@ -30,8 +30,12 @@ Once the environment has been setup, you just need to compile firecracker with :
   sudo mount <my_disk> /mnt/<my_folder>
   ```
   Then copy the ```apps``` folder, the ```vpim_driver_setup.tar.xz``` and the upmem SDK ```upmem_2021.3.0_amd64.deb``` file to the virtual machine disk and install all the dependencies.
-  ```chroot /mnt/<my_folder>```.
-  ```apt install libffi-dev libgcc-8-dev libnuma1 libstdc++-8-dev pkg-config python3 python3-pygments python3-serial  libedit-dev```
+  ```
+  chroot /mnt/<my_folder>
+  ```
+  ```
+  apt install libffi-dev libgcc-8-dev libnuma1 libstdc++-8-dev pkg-config python3 python3-pygments python3-serial  libedit-dev
+  ```
   Once this is done, Compile the manager using the ```make``` command in the ```vpim_manager``` folder and run it with the ```vpim_manager/bin/app``` command.
 
   To start a virtual machine, run the nsfc-set-socket.sh in one terminal and the run-firecracker.sh to another one.
