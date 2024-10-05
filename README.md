@@ -26,7 +26,9 @@ Once the environment has been setup, you just need to compile firecracker with :
   We use Firecracker as our virtual machine. You first need to build a rootfs. you can do so by following [this](https://happybear.medium.com/building-ubuntu-20-04-root-filesystem-for-firecracker-e3f4267e58cc) tutorial step by step.
   NB : use at least 8GB to create the virtual disk.
   Then mount the disk on your system.
-  ```sudo mount <my_disk> /mnt/<my_folder>```
+  ```
+  sudo mount <my_disk> /mnt/<my_folder>
+  ```
   Then copy the ```apps``` folder, the ```vpim_driver_setup.tar.xz``` and the upmem SDK ```upmem_2021.3.0_amd64.deb``` file to the virtual machine disk and install all the dependencies.
   ```chroot /mnt/<my_folder>```.
   ```apt install libffi-dev libgcc-8-dev libnuma1 libstdc++-8-dev pkg-config python3 python3-pygments python3-serial  libedit-dev```
