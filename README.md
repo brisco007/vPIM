@@ -1,5 +1,6 @@
-# PRESENTATION OF THE FOLDER CONTENT
+# vPIM - Virtualization of Processing-In-Memory
 
+This repository contains the code for PIM hardware virtualization. 
 This folder contains several elements dispatched into 2 folders : **apps** and **code**.
 
 ## APPS folder
@@ -18,3 +19,25 @@ Once the environment has been setup, you just need to compile firecracker with :
 - **This contains the linux kernel (version 5.10.98)** :  compiled with our vPIM driver. you can find that driver at : *guest-5.10.98/drivers/virtio/virtio_pim*.
 - **The vpim manager** : that should be launched before launching firecracker for he is the one that shall allocate ranks to firecracker.
 - **Scripts** : use the *nsfc-set-socket.sh* to run one firecracker instance and *run-firecracker.sh* to send requests to create the VM. use the version with suffix 2 in order to launch a second VM if needed. However, do not forget to modify it in order to avoid conflicts (entering the bad amount of deviecs for example).
+- **vpim_driver_setup.tar.xz** use the installation script contained in this compressed file to add the virtual PIM devices to the plugdev group in the virtual machine. You thus need to copy this in your virtual machine disk before hand.
+
+  ## HOW TO RUN THE SYSTEM
+
+  We use Firecracker as our virtual machine. You first need to build a rootfs. you can do so by following [this](https://happybear.medium.com/building-ubuntu-20-04-root-filesystem-for-firecracker-e3f4267e58cc) tutorial step by step.
+  NB : use at least 8GB to create the virtual disk.
+  Then mount the disk on your system.
+  ```sudo mount <my_disk> /mnt/<my_folder>```
+  Then copy the ```apps``` folder, the ```vpim_driver_setup.tar.xz``` and the upmem SDK ```upmem_2021.3.0_amd64.deb``` file to the virtual machine disk and install all the dependencies.
+  ```chroot /mnt/<my_folder>```.
+  ```apt install libffi-dev libgcc-8-dev libnuma1 libstdc++-8-dev pkg-config python3 python3-pygments python3-serial  libedit-dev```
+  Once this is done, Compile the manager using the ```make``` command in the ```vpim_manager``` folder and run it with the ```vpim_manager/bin/app``` command.
+
+  To start a virtual machine, run the nsfc-set-socket.sh in one terminal and the run-firecracker.sh to another one.
+  To change the rootfs used, please change the rootfs path in the run-firecracker.sh file.
+  Also modify this file if you need to change some parameters in the system like the number of vPIM devices to allocate.
+
+  ## RUN APPLICATIONS IN THE VIRTUAL MACHINE
+  First install the upmem SDK and use the script in the vpim_driver_setup.tar.xz file.
+  Reboot the system to apply the changes.
+  Use the ```dpu-diag``` command to check if the ranks are visible and available.
+  And then go to the vPrIM folder to run the scripts : run_weak.py, run_strong_rank.py, run_strong_full.py.
