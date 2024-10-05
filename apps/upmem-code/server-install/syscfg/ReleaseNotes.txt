@@ -1,0 +1,383 @@
+Release Notes for System Configuration Utility(Syscfg)
+Version 14.1 Build 32
+
+May 09, 2020
+Copyright (c) 2020 Intel Corporation.
+=====================================
+
+Contents
+--------
+
+1. Introduction
+2. Supported Platforms
+3. Supported Operating Systems
+4. Pre-requisites
+5. Getting started
+6. Usage
+7. Reference Documentation
+8. Known Issues
+9. Unsupported Features
+10. Change List
+11. Legal Information
+
+1. Introduction
+---------------
+The Save and Restore System Configuration utility (syscfg) is used for saving and restoring Firmware and BIOS 
+settings to a binary/INI file, and for configuring Firmware and BIOS settings via a command line interface.
+
+2. Supported Platforms
+----------------------
+   Intel(R) Server Board based on Intel(R) Xeon(R) Scalable Processor Family
+   Intel(R) Server Board based on 2nd Generation Intel(R) Xeon(R) Scalable Processor Family
+   Intel(R) Server Board based on Intel(R) Xeon(R) Platinum 9200 Processor Family
+   Intel(R) Server Board based on Intel(R) Xeon(R) processor E5-2600 v3/v4 product family (S2600WT, S2600TP, S2600KP, S2600CW)
+   Intel(R) Server Board based on Intel(R) Xeon(R) processor E3-1200 v2/v3/v4/v5/v6 product family.
+
+3. Supported Operating Systems
+------------------------------
+   UEFI Shell
+   WinPE* 4.0 (x64)
+   Windows* Server 2019
+   Windows* Server 2016 
+   Windows* Server 2012 R2 
+   Windows* 10 
+   RHEL* 6.8 (x64)
+   RHEL* 7.3
+   RHEL* 7.5
+   RHEL* 7.6
+   RHEL* 8.0
+   SLES* 11.4 (x64)
+   SLES* 12.2
+   SLES* 15 & Sp1
+   CentOS* 7.3 (x64)
+   Debian* 8.10
+
+4. Pre-requisites
+-----------------
+   1. On RHEL*, SLES*, CentOS*, UEFI aware Linux or other Linux
+      Install necessary libs if the utility fails while loading libs following Linux error message.
+      64 bit libs with "x86_64" suffix for 64 bit binary.
+      For example: 
+      a. If the utility fails with error message
+         "error while loading shared libraries: libncurses.so.5: cannot open shared object file: No such file or directory"
+         Then use "rpm -ivh xxxx.rpm" to install libstdc++ and ncurses rpms from the OS
+
+      b. If the utility fails with error message
+         "Error: /lib/ld-linux.so.2: Bad ELF interpreter: No such file or directory" 
+         This indicates development and optional packages are not installed, 
+         please install the necessary packages accordingly.
+      
+      c. If the utility installation fails with error message
+         "depends on libncurses5 (>= 6); however: Version of libncurses5:amd64 on system is 5.9+20140913-1+deb8u2."
+         This indicates libncurses version must be >= 6, please install new libncurses. 
+
+   2. On RHEL*, SLES*, CentOS*, UEFI aware Linux or other Linux
+      There might be a driver conflict between internal driver and kernel. You need to start up OpenIPMI driver and make sure "/dev/ipmi0" device exists.
+
+      For RHEL* run the below command and make sure "/dev/ipmi0" device exists.
+         #modprobe ipmi_devintf or #modprobe ipmi_si
+      For SLES* run the below command and make sure "/dev/ipmi0" device exists.
+         #service ipmi start
+
+   3. Utility works only if it is executed with Administrator privilege on Windows* and with root privilege on Linux* OSes.
+   
+5. Getting started
+------------------
+   1. For 32 bit Windows, go to folder "SysCfgxx\Drivers\win\x86" and run "install.cmd" as administrator to install ipmi, smi and memory map drivers.
+   2. For 64 bit Windows and WinPE, go to folder "SysCfgxx\Drivers\win\x64" and run "install.cmd" as administrator to install ipmi, smi and memory map drivers.
+   3. For 32 bit Windows, please use syscfg in "SysCfgxx\Win_x86". Run syscfg.exe as administrator.
+   4. For 64 bit Windows and WinPE, please use syscfg in "SysCfgxx\Win_x64". Run syscfg.exe as administrator.
+   5. For UEFI shell, please use syscfg.efi in "SysCfgxxx\UEFI_x64". And syscfg_temp.efi is internal temporary file, please do not remove or use it.
+   6. Linux*
+     I.  RPM Installation:
+         --------------------
+          1. Copy syscfg rpm from corresponding folder to local folder.
+               -> for RHEL older than 8.0,please copy from Linux_x64\RHEL
+               -> for RHEL8.0 and above,please copy from Linux_x64\RHEL\RHEL8
+               -> for SLES older than 15,please copy from Linux_x64\SLES
+               -> for SLES15 and above,please copy from Linux_x64\SLES\SLES15
+          2. If there is another version already has been installed previously, uninstall that version first before installing the new version.
+          3. Install syscfg utility by using "rpm -ivh syscfgxx.rpm". This will install the utility in "/usr/bin/syscfg/".
+          4. On RHEL utility can now be executed from any terminal (example: "# syscfg -i").
+          5. On SLES after installing the rpm close the terminal from which rpm was installed and then execute utility from a new terminal (example: "# syscfg -i").
+         RPM Uninstallation:
+         -------------------
+          1. To uninstall the utility use "rpm -e syscfg" command.
+
+    II. Regular Installation:
+        ---------------------
+        1. Linux OS version, unzip package and use "# chmod 755" to change executable. The executable can be executed directly. 
+     
+   III. DEB Installation:
+        ---------------------
+        1. dpkg -i xxxx.deb
+
+        DEB Uninstallation:
+        ---------------------
+        1. dpkg -r syscfg
+        
+6. Usage
+--------
+   1. Command line Interface
+      Linux Shell>> ./syscfg [Switches] [parameters]
+			 			 
+      Examples
+      --------
+      a. To display the system BIOS/BMC Version:
+             >> ./syscfg -i
+
+      b. To display the BIOS Parameters:
+             >> ./syscfg /d biossettings <"BIOS variable Name">
+
+      c. To Set the BIOS Parameters:
+             >> ./syscfg /bcs <AdminPw> <"BIOS variable Name"> <Value>
+
+         Note: If AdminPw is not set use ""
+		 
+ * "BIOS variable Name" should be the same as shown in BIOS F2 screen.
+ * "AdminPw" is the BIOS administrator password if not set use "". 
+
+      d. To save BIOS and BMC settings to INI file use
+            >> ./syscfg /s BIOSBMC.ini /b /f
+                 or
+            >> ./syscfg /s BIOSBMC.ini
+
+      e. To save only BIOS settings to INI file use
+            >> ./syscfg /s BIOS.ini /b 
+
+      f. To save only BMC settings to INI file use
+            >> ./syscfg /s BMC.ini /f
+
+      g. To restore BIOS and BMC settings from saved INI file use
+            >> ./syscfg /r BIOSBMC.ini /b /f    
+            Note: If AdminPw is set use, /bap should be put at the end of the command line
+            >> ./syscfg /r BIOSBMC.ini /b /f /bap <"AdminPw">
+
+      Windows and EFI Shell>> syscfg [Switches] [parameters]
+
+      Examples
+      --------
+      a. To display the system BIOS/BMC Version:
+             >> syscfg -i
+
+      b. To display the BIOS Parameters:
+             >> syscfg /d biossettings <"BIOS variable Name">
+
+      c. To Set the BIOS Parameters:
+             >> syscfg /bcs <AdminPw> <"BIOS variable Name"> <Value>
+
+         Note: If AdminPw is not set use ""  
+
+ * "BIOS variable Name" should be the same as shown in BIOS F2 screen.
+ * "AdminPw" is the BIOS administrator password if not set use "". 
+
+      d. To save BIOS and BMC settings to INI file use
+            >> syscfg /s BIOSBMC.ini /b /f
+                 or
+            >> syscfg /s BIOSBMC.ini
+
+      e. To save only BIOS settings to INI file use
+            >> syscfg /s BIOS.ini /b 
+
+      f. To save only BMC settings to INI file use
+            >> syscfg /s BMC.ini /f
+
+
+      g. To restore BIOS and BMC settings from saved INI file use
+            >> syscfg /r BIOSBMC.ini /b /f     
+            Note: If AdminPw is set use 
+            >> syscfg /r BIOSBMC.ini /b /f /bap <"AdminPw">
+
+7. Reference Documentation
+--------------------------
+    IPMI v2.0 specification
+    SYSCFG Utility User Guide
+
+8. Known Issues
+---------------
+  1. To be noted, some silicon settings requires cold reboot to take effect, thus any BIOS setting changed by SYSCFG requires cold reset by syscfg /gpc or AC cycle. 
+  2. Reordering boot devices using /bbo should be followed by a system reset as per IPMI spec. 
+     Otherwise an immediate display command using /bbo switch may not display the correct boot device order.
+  3. Restore of BIOS variables will not work for Read only variables or variables which may become read only due to dependent variables.
+  4. BIOS variables with leading/tailed space can't be restored successfully.
+  5. As some BIOS settings have dependencies, using syscfg INI file to save/restore BIOS settings only once may not be able to achieve the goal. 
+     The solution is to use command line or INI file to change/restore twice. 
+     For example, if you want to restore "ATS Support", you have to restore "Intel(R) VT for Directed I/O" from "Disable" to "Enable" first in order to make "ATS Support" visible, then to do second restore to change "ATS Support" value. Upon system reboot, the new BIOS settings will take effect.
+  6. Utilities, SNMP-SA and IASC cannot run at the same time due to KCS port conflict. There will be error message 
+     "Error: Application Cannot Communicate to the BMC.".
+  7. The settings under server management are saved in BMC. For some of the settings under server  
+     management, after a reboot the values from BMC will override the values set through "/bcs" switch.  
+	 
+           The following settings will be overwritten 
+                1. Resume on AC Power Loss
+                2. Shutdown Policy
+     "Resume on AC Power Loss" BIOS variable can be set using BMC switch "/prp".
+     "Shutdown Policy" BIOS variable can be set using BMC switch "/sdp".
+     Please refer to the help for more details.
+  8. When using syscfg to get BIOS setting, there will be some difference between UEFI shell and OS. For example, syscfg cannot get "Processor PCIe Link Speed" in OS.
+  9. IO port access is not allowed in Linux when UEFI secure boot is enabled. Please disable UEFI secure boot in F2 menu before running utility.
+  10. Debian and SLES* 15 OS do not allow IO memory map by default. User needs to add "iomem=relaxed" to grub boot option to enable IO memory map. Otherwise some features may not work.
+  11. syscfg /bcs and /bvar can not work normally on Grantley platform due to Bios known issue
+
+9. Unsupported Features
+------------------------
+   Utility cannot be executed successfully when UEFI secure boot is enabled under Linux because Linux closes all IO port access when UEFI secure boot is enabled. If customer wants to use it under Linux environment, please ensure UEFI secure boot is disabled in BIOS F2 menu. 
+
+10. Change List
+------------------------
+   Build 32
+   Fix 1507867762 - add ffo support
+   Fix 14011305882 - Add if/then statement to syscfg install routine to allow for Upgrade
+
+   Build 31
+   Support Suse15 and sp1
+   Support KCS policy for Grantly
+   Support KCS policy for SiverPass
+
+   Build 30
+   Fix 1507321895 - syscfg cannot change bios time
+   Fix syscfg /bvar delete error without guid provided.
+
+   Build 29
+   Fix the issue that syscfg /r only can change one bios setting at a time under Linux
+
+   Build 28
+   Enable new build variant of Linux to support RHEL8 64bit
+
+   Build 27
+   Fix BMC KCS privilege issue
+
+   Build 26
+   Fix boot order restoration failure issue.
+
+   Build 25
+   Support LAN failover setting on specific NIC
+   Support new SKU
+   Fix saving BMC debug log corrupted issue
+
+   Build 24
+   Support Fan UCC, Air Flow Limit, Exit Air Temp settings and display
+
+   Build 23
+   Rebuild for Windows
+
+   Build 22
+   Fix restoration failure when DHCPHostName is not in ini file
+
+   Build 21
+   Add "/gpc" to support graceful power cycle
+   Add deb package for Debian
+   Fix BIOS /bcs failure when option name contains ","
+
+   Build 20
+   Fix BMC restoration failure when channel 1 is not available
+
+   Build 19
+   Support new SKU
+
+   Build 18
+   Fix a defect for BMC LAN configuration
+   Support Fan PWM Offset display and setting
+
+   Build 17
+   Support BMC LAN DNS setting and display
+
+   Build 16
+   Support new BMC user configuration model
+   Support new BMC version format
+
+   Build 15
+   Support new SKU
+
+   Build 14
+   Support new SKU
+
+   Build 13
+   Fix exception hang issue under EFI shell
+
+   Build 12
+   Add two new SMTP command parameters
+   Offer backward compatibility for dumping BMC SOL log on older platforms
+
+   Build 11
+   Support new IPMI commands for SMTP configuration
+
+   Build 10
+   Support BIOS security fix
+   Fix a defect for EFI variable creation and deletion
+   Fix error handling of "/sbmcsol"
+
+   Build 9
+   Fix system boot order restoration
+   Fix error handling of "/dt"
+
+   Build 8
+   Support a new SKU
+   Update supported OS list
+
+   Build 7
+   Remove boot code information display if it is not supported
+
+   Build 6
+   Fix a defect of BIOS setting save and restoration
+
+11. Legal Information
+---------------------
+
+==============================================================================
+
+                               LEGAL INFORMATION
+
+==============================================================================
+
+Information in this document is provided in connection with Intel Products
+
+and for the purpose of supporting Intel developed server boards and systems.
+
+No license, express or implied, by estoppel or otherwise, to any intellectual 
+
+property rights is granted by this document. Except as provided in Intel's 
+
+Terms and Conditions of Sale for such products, Intel assumes no liability 
+
+whatsoever, and Intel disclaims any express or implied warranty, relating to 
+
+sale and/or use of Intel products including liability or warranties relating 
+
+to fitness for a particular purpose, merchantability, or infringement of any 
+
+patent, copyright or other intellectual property right. Intel Corporation may 
+
+have patents or pending patent applications, trademarks, copyrights, or other 
+
+intellectual property rights that relate to the presented subject matter.  
+
+The furnishing of documents and other materials and information does not 
+
+provide any license, express or implied, by estoppel or otherwise, to any 
+
+such patents, trademarks, copyrights, or other intellectual property rights.  
+
+Intel products are not intended for use in medical, life saving, or life 
+
+sustaining applications. Intel may make changes to specifications and product 
+
+descriptions at any time, without notice.
+
+ 
+
+Intel is a registered trademark of Intel Corporation. 
+
+ 
+
+*Other names and brands are the property of their respective owners.
+
+ 
+
+Copyright (c) 2020 Intel Corporation.
+
+
+
+(end)
+
+

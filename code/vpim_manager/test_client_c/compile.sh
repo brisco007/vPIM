@@ -1,0 +1,1 @@
+gcc -o client_c main.c -Wall -Wextra -Werror -lzmq

@@ -1,0 +1,86 @@
+;****************************************************************************
+;* FILE NAME:       FLASHUD.INF
+;* FILE CONTAINS:
+;* DESCRIPTION:     Win 2003 "INF" file for Intel Server Management FLSHUD WDM
+;*                  driver.
+;* NOTES:           .
+;****************************************************************************
+;*                   INTEL CORPORATION PROPRIETARY INFORMATION
+;*     This software is supplied under the terms of a license agreement or
+;*     nondisclosure agreement with Intel Corporation and may not be copied
+;*     or disclosed except in accordance with the terms of that agreement.
+;*           Copyright (c) 2003 Intel Corporation.  All Rights Reserved.
+;****************************************************************************
+
+
+[Version]
+Signature = "$WINDOWS NT$"
+Class = System
+ClassGuid = {4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider = %PROVIDER%		;defined later in String section
+;LayoutFile = layout.inf		;entry used only by system installer
+DriverVer = 07/31/2018,6.4.0.0
+Catalogfile=flashud.cat
+
+; =================== Installation media. ======================
+[SourceDisksNames.amd64]
+1=%DiskId%
+
+; =================== Files to be installed.. ======================
+[SourceDisksFiles.amd64]
+flashud.sys = 1
+
+; =================== Common for all ACPI devices ======================
+[DestinationDirs]
+DefaultDestDir = 12        ;Driver directory
+
+[Manufacturer]
+%INTEL_MFG% = INTEL_FLASH, ntamd64 	   ;Model statement defined in Intel Flash section
+
+; =================== INTEL FLASH ======================================
+[INTEL_FLASH.ntamd64]
+%*INT0800.DeviceDesc% = Flashud_Inst,*INT0800
+;%*INT0800.DeviceDesc% = Flashud_Inst,pci\ven_8086&dev_24c0
+
+[Flashud_Inst.ntamd64]
+CopyFiles = @flashud.sys
+
+[Flashud_Inst.ntamd64.Services]
+AddService = int0800, 0x00000002, Flashud_ServiceInstallSection
+;AddService = flashud, 0x000000, Flashud_ServiceInstallSection
+
+
+[Flashud_ServiceInstallSection]
+DisplayName    = %Flashud_svcdesc%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_DEMAND_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %12%\flashud.sys
+
+LoadOrderGroup = "System Bus Extender"
+AddReg = Flashud_Inst_AddRegSection
+
+[Flashud_Inst_AddRegSection]
+HKR,,DriverVersion,0x00010001,0x00000006
+
+; =================== STRINGS and CONSTANTS ============================
+
+[Strings]
+INTEL_MFG = "Intel, Corp."
+PROVIDER = "Intel, Corp."
+SSD-DRYDON = "SSD Drydon III"
+*INT0800.DeviceDesc = "Intel 28F320C3 Flash Update Device Driver v6.4"
+DiskId = "Intel OFU Driver Installation Disk 1 of 1"
+
+;service descriptions
+Flashud_svcdesc = "Intel 28F320C3 Flash Update Device Driver v6.4"
+
+;*******************************************
+;Handy macro substitutions (non-localizable)
+SPSVCINST_ASSOCSERVICE = 0x00000002
+SERVICE_KERNEL_DRIVER  = 1
+SERVICE_BOOT_START     = 0
+SERVICE_DEMAND_START   = 3
+SERVICE_ERROR_NORMAL   = 1
+
+

@@ -1,0 +1,95 @@
+;
+;
+;*****************************************************************************
+;*                   INTEL CORPORATION PROPRIETARY INFORMATION               *
+;*     This software is supplied under the terms of a license agreement or   *
+;*     nondisclosure agreement with Intel Corporation and may not be copied  *
+;*     or disclosed except in accordance with the terms of that agreement.   *
+;*    Copyright (c) 2006 - 2008 Intel Corporation.  All Rights Reserved.     *
+;*****************************************************************************
+;
+;Module Name:
+;
+;    IBSMUx64.INF
+;
+;Abstract:
+;
+;    INF file for installing IB Server management Util device drivers 
+;    This is a mutlios INF file.
+;
+;--*/
+ 
+ 
+ 
+[Version] 
+Signature = "$Windows NT$" 
+Class=System
+ClassGUID={4D36E97D-E325-11CE-BFC1-08002BE10318} 
+Provider=%Intel% 
+CatalogFile=IBSMUTIL.cat
+DriverVer = 07/13/2018,3.3.0.0
+
+[DestinationDirs] 
+Util_Device.Files.amd64_12 = 12 
+
+[SourceDisksNames.amd64]
+1 = %Desc_amd64%
+
+[SourceDisksFiles.amd64]
+IBSMUTIL.sys = 1,,
+
+[Manufacturer] 
+%Intel%=Intel,ntamd64
+
+[Intel.ntamd64]
+%Util_DeviceDesc%=Util_Device_Inst,*IntelUtilDeV
+
+[Util_Device_Inst.ntamd64] 
+CopyFiles = Util_Device.Files.amd64_12 
+
+
+[Util_Device_Inst.ntamd64.Services] 
+AddService = IBSMUTIL,0x00000002,Util_Device_Service_Instamd64, Util_Device_EventLog_Inst 
+
+[Util_Device_Service_Instamd64] 
+ServiceType = %SERVICE_KERNEL_DRIVER% 
+StartType = %SERVICE_DEMAND_START% 
+ErrorControl = %SERVICE_ERROR_NORMAL% 
+ServiceBinary = %12%\IBSMUTIL.sys 
+LoadOrderGroup = "Extended Base"
+
+
+[Util_Device.Files.amd64_12] 
+IBSMUTIL.sys
+
+[Util_Device_EventLog_Inst] 
+AddReg = Util_Device_EventLog_Inst.AddReg 
+ 
+[Util_Device_EventLog_Inst.AddReg] 
+HKR,,EventMessageFile,%REG_EXPAND_SZ%,"%%SystemRoot%%\System32\IoLogMsg.dll" 
+HKR,,TypesSupported,%REG_DWORD%,7
+
+
+[Strings] 
+
+;  *******Localizable Strings******* 
+Intel= "Intel Corporation" 
+Desc_amd64= "Intel Corporation Systemdrivers" 
+Util_DeviceDesc= "Intel Server Management Utility Device v3.3" 
+
+;  *******Non Localizable Strings******* 
+
+SERVICE_BOOT_START = 0x0 
+SERVICE_SYSTEM_START = 0x1 
+SERVICE_AUTO_START = 0x2 
+SERVICE_DEMAND_START = 0x3 
+SERVICE_DISABLED = 0x4 
+
+SERVICE_KERNEL_DRIVER = 0x1 
+SERVICE_ERROR_IGNORE = 0x0 
+SERVICE_ERROR_NORMAL = 0x1 
+SERVICE_ERROR_SEVERE = 0x2 
+SERVICE_ERROR_CRITICAL = 0x3 
+
+REG_EXPAND_SZ = 0x00020000 
+REG_DWORD = 0x00010001 

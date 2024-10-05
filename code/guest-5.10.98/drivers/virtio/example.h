@@ -1,0 +1,1 @@
+int virtio_example_add(int left, int right);

@@ -1,0 +1,182 @@
+;****************************************************************************
+;* FILE NAME:       IMB_Drv.INF
+;* FILE CONTAINS:
+;* DESCRIPTION:     Win 2003 "INF" file for Intel Server Management IMB WDM
+;*                  driver.
+;* NOTES:           .
+;****************************************************************************
+;*                   INTEL CORPORATION PROPRIETARY INFORMATION
+;*     This software is supplied under the terms of a license agreement or
+;*     nondisclosure agreement with Intel Corporation and may not be copied
+;*     or disclosed except in accordance with the terms of that agreement.
+;*           Copyright (c) 2003 Intel Corporation.  All Rights Reserved.
+;****************************************************************************
+
+;----------------------------------------------------------------------------
+; Spec driver info
+;----------------------------------------------------------------------------
+
+[Version]
+
+    signature       = "$WINDOWS NT$"
+    Class=System
+    ClassGUID={4D36E97D-E325-11CE-BFC1-08002BE10318}
+;   Class           = Unknown
+    Provider        = "Intel Corporation"
+    CatalogFile     = IMBDrv.cat
+    DriverVer = 07/13/2018,13.9.0.0
+
+;----------------------------------------------------------------------------
+; Spec installation media for driver.
+;----------------------------------------------------------------------------
+
+[SourceDisksNames]
+
+    1=%DiskId%
+
+;----------------------------------------------------------------------------
+; Spec files to be installed.
+;----------------------------------------------------------------------------
+
+[SourceDisksFiles]
+
+    imbdrv.sys = 1                          ;For production
+;   imbdrv.sys = 1,..\drivers\lib\i386      ;For development only
+
+;----------------------------------------------------------------------------
+; Spec destination for files to be copied.
+;----------------------------------------------------------------------------
+
+[DestinationDirs]
+
+	;
+	;"12" specifies iosubsys or "%SystemRoot%\System32\Drivers
+	;
+	IMBDrvFilesSection = 12
+
+;----------------------------------------------------------------------------
+; Spec manufacturers, and their associated devices, supported by this INF
+; file.
+;----------------------------------------------------------------------------
+
+[Manufacturer]
+
+    %Intel%=IntelDeviceSection,NTamd64 
+
+    ;------------------------------------------------------------------------
+    ; Models section specs the devices supported by this INF file.
+    ;
+    ; dev-desc = install-section-name, h/w-id [,compatible-dev-id]...
+    ;------------------------------------------------------------------------
+
+    [IntelDeviceSection]
+        %IMBDrvDesc% = IMBDrvInstallSection, *IMBDRV
+
+
+    [IntelDeviceSection.NTAmd64]
+
+        %IMBDrvDesc% = IMBDrvInstallSection, *IMBDRV
+
+        ;--------------------------------------------------------------------
+        ; Install section for "IMBDrvInstallSection".
+        ;--------------------------------------------------------------------
+
+        [IMBDrvInstallSection]
+
+            CopyFiles   = IMBDrvFilesSection
+
+                [IMBDrvInstallSection.NT.WMI]
+
+            WMIInterface = {4116f60b-25b3-4662-b732-99a6111edc0b},,WMIGuidSecurity_AdminFull
+
+       [WMIGuidSecurity_AdminFull]
+        security="O:BAG:BAD:(A;;0x12001f;;;BA)(A;;0x12001f;;;LS)(A;;0x12001f;;;NS)(A;;0x12001f;;;SY)(A;;0x100005;;;BU)"
+
+            ;------------------------------------------------------------------
+            ; Separate the files into sections based upon where they will be
+            ; copied.
+            ;------------------------------------------------------------------
+
+            [IMBDrvFilesSection]
+
+                imbdrv.sys
+
+        ;----------------------------------------------------------------------
+        ; Service install section.  The INF processor will look for a section
+        ; name of the form <install-section-name>.Services, where
+        ; <install-section-name> is the name of the install section used.
+        ;----------------------------------------------------------------------
+
+        [IMBDrvInstallSection.Services]
+
+            AddService = imbdrv, 0x00000002, IMBDrvServiceSection
+
+                ;--------------------------------------------------------------
+                ; Service description section
+                ;--------------------------------------------------------------
+
+                [IMBDrvServiceSection]
+
+                    DisplayName     = %IMBDrvDesc%              ;Name displayed in cont panel
+                    ServiceType     = 1                         ;Kernel driver
+
+                    ;
+                    ; Changed "StartType" from 3 to 2, because IMB driver could not initialize
+                    ; an event object because the part of the system necessary for this
+                    ; initialization was not available yet.  In theory, a "StartType" of 3
+                    ; should be used for PnP drivers, but "StartType" of 2 still seems to work
+                    ; properly.
+                    ;
+
+                    StartType       = 2                         ;Auto start
+                    ErrorControl    = 1                         ;Normal err proc if drv fails
+                    ServiceBinary   = %11%\drivers\imbdrv.sys   ;Location of driver file
+                    AddReg          = IMBDrv_AddRegSection
+
+                    ;----------------------------------------------------------
+                    ; Entries to add to the registry.
+                    ;
+                    ; Configuration Bits:
+                    ;
+                    ;   0x00000001 - Configure as a Win 2000 driver, i.e. not
+                    ;                legacy driver.
+                    ;
+                    ;   0x00000002 - Use WMI interface.
+                    ;
+                    ;   0x00000004 - Disable legacy symbolic link name
+                    ;                interface.
+                    ;
+                    ;   0x00000008 - (Unused)
+                    ;
+                    ;   0x00000010 - If unable to determine if platform is
+                    ;                Win 2000 assume Win 2000.
+                    ;----------------------------------------------------------
+
+                    [IMBDrv_AddRegSection]
+
+                        HKR,,Configuration,0x00010001,0x00000013
+;                        HKR,,Configuration,0x00010001,0x00000003
+
+;                       HKR,,DiagCode,0x00010001,0x0000000
+                        HKR,,DiagCode,0x00010001,0x000007F
+
+;Timeout values in microsecond
+
+			HKR,,CommandWaitTimeOutPeriod,0x00010001,0x004c4b40
+
+			   HKR,,IpmbWaitTimeOutPeriod,0x00010001,0x006acfc0
+			   
+			   HKR,,BusyWaitTimeOutPeriod,0x00010001,0x000f4240
+
+
+			          HKR,,BusyWaitPeriod,0x00010001,0x0000001e
+				  HKR,,DriverVersion,0x00010001,0x0000000D
+;----------------------------------------------------------------------------
+; String substitution macros
+;----------------------------------------------------------------------------
+
+[Strings]
+
+    Intel               = "Intel, Inc."
+    DiskId              = "Intel IMB Driver Installation Disk 1 of 1"
+    IMBDrvDesc          = "Intel Intelligent Management Bus Driver V13.9"

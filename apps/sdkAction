@@ -1,0 +1,65 @@
+#!/bin/bash
+version=2021.3
+path=$(pwd)
+if [ $1 = "build" ]; then
+	DIR="upmem-sdk"
+	if [ -d "$DIR" ]; then
+  		rm -rf upmem-sdk
+	fi
+	git clone https://github.com/852866031/upmem-sdk.git
+	cd upmem-sdk/src/backends
+	mkdir build && cd build
+	cmake .. -G Ninja
+	ninja
+	cp $path/upmem-sdk/src/backends/build/api/libdpujni.so.0.0 /usr/lib/libdpujni.so.0.0
+	cp $path/upmem-sdk/src/backends/build/api/libdpu.so.0.0 /usr/lib/libdpu.so.0.0
+	cp $path/upmem-sdk/src/backends/build/hw/libdpuhw.so.0.0 /usr/lib/libdpuhw.so.0.0
+	cp $path/upmem-sdk/src/backends/build/ufi/libdpu-ufi.so.0.0 /usr/lib/libdpu-ufi.so.0.0
+	cp $path/upmem-sdk/src/backends/build/verbose/libdpuverbose.so.0.0 /usr/lib/libdpuverbose.so.0.0
+	cp $path/upmem-sdk/src/backends/build/vpd/libdpuvpd.so.0.0 /usr/lib/libdpuvpd.so.0.0
+	rm /usr/lib/libdpujni.so
+	rm /usr/lib/libdpu.so
+	rm /usr/lib/libdpuhw.so
+	rm /usr/lib/libdpu-ufi.so
+	rm /usr/lib/libdpuverbose.so
+	rm /usr/lib/libdpuvpd.so
+	ln -s /usr/lib/libdpujni.so.0.0 /usr/lib/libdpujni.so
+	ln -s /usr/lib/libdpu.so.0.0 /usr/lib/libdpu.so
+	ln -s /usr/lib/libdpuhw.so.0.0 /usr/lib/libdpuhw.so
+	ln -s /usr/lib/libdpu-ufi.so.0.0 /usr/lib/libdpu-ufi.so
+	ln -s /usr/lib/libdpuverbose.so.0.0 /usr/lib/libdpuverbose.so
+	ln -s /usr/lib/libdpuvpd.so.0.0 /usr/lib/libdpuvpd.so
+elif [ $1 = "link" ]; then
+ 	cp $path/upmem-sdk/src/backends/build/api/libdpujni.so.0.0 /usr/lib/libdpujni.so.0.0
+	cp $path/upmem-sdk/src/backends/build/api/libdpu.so.0.0 /usr/lib/libdpu.so.0.0
+	cp $path/upmem-sdk/src/backends/build/hw/libdpuhw.so.0.0 /usr/lib/libdpuhw.so.0.0
+	cp $path/upmem-sdk/src/backends/build/ufi/libdpu-ufi.so.0.0 /usr/lib/libdpu-ufi.so.0.0
+    cp $path/upmem-sdk/src/backends/build/verbose/libdpuverbose.so.0.0 /usr/lib/libdpuverbose.so.0.0
+	cp $path/upmem-sdk/src/backends/build/vpd/libdpuvpd.so.0.0 /usr/lib/libdpuvpd.so.0.0
+	rm /usr/lib/libdpujni.so
+	rm /usr/lib/libdpu.so
+	rm /usr/lib/libdpuhw.so
+	rm /usr/lib/libdpu-ufi.so
+	rm /usr/lib/libdpuverbose.so
+	rm /usr/lib/libdpuvpd.so
+	ln -s /usr/lib/libdpujni.so.0.0 /usr/lib/libdpujni.so
+	ln -s /usr/lib/libdpu.so.0.0 /usr/lib/libdpu.so
+	ln -s /usr/lib/libdpuhw.so.0.0 /usr/lib/libdpuhw.so
+	ln -s /usr/lib/libdpu-ufi.so.0.0 /usr/lib/libdpu-ufi.so
+	ln -s /usr/lib/libdpuverbose.so.0.0 /usr/lib/libdpuverbose.so
+	ln -s /usr/lib/libdpuvpd.so.0.0 /usr/lib/libdpuvpd.so
+elif [ $1 = "unlink" ]; then
+	rm /usr/lib/libdpujni.so
+	rm /usr/lib/libdpu.so
+	rm /usr/lib/libdpuhw.so
+	rm /usr/lib/libdpu-ufi.so
+	rm /usr/lib/libdpuverbose.so
+	rm /usr/lib/libdpuvpd.so
+	ln -s /usr/lib/libdpujni.so.$version /usr/lib/libdpujni.so
+	ln -s /usr/lib/libdpu.so.$version /usr/lib/libdpu.so
+	ln -s /usr/lib/libdpuhw.so.$version /usr/lib/libdpuhw.so
+	ln -s /usr/lib/libdpu-ufi.so.$version /usr/lib/libdpu-ufi.so
+	ln -s /usr/lib/libdpuverbose.so.$version /usr/lib/libdpuverbose.so
+	ln -s /usr/lib/libdpuvpd.so.$version /usr/lib/libdpuvpd.so
+fi
+ls -al /usr/lib | grep 'dpu'

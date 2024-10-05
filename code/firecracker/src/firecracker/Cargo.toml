@@ -1,0 +1,23 @@
+[package]
+name = "firecracker"
+version = "1.1.0"
+authors = ["Amazon Firecracker team <firecracker-devel@amazon.com>"]
+edition = "2018"
+build = "../../build.rs"
+description = "Firecracker enables you to deploy workloads in lightweight virtual machines, called microVMs, which provide enhanced security and workload isolation over traditional VMs, while enabling the speed and resource efficiency of containers."
+homepage = "https://firecracker-microvm.github.io/"
+license = "Apache-2.0"
+
+[dependencies]
+event-manager = ">=0.2.1"
+libc = ">=0.2.39"
+serde_json = ">=1.0.68"
+timerfd = ">=1.0"
+
+api_server = { path = "../api_server" }
+logger = { path = "../logger" }
+mmds = { path = "../mmds" }
+seccompiler = { path = "../seccompiler" }
+snapshot = { path = "../snapshot"}
+utils = { path = "../utils" }
+vmm = { path = "../vmm" }
