@@ -104,8 +104,4 @@ Here's a summary of the modifications made to individual applications:
 | TRNS      |     |    |
 
 ## Running vPrIM 
-
-## Results Comparison
-The tasks in vPrIM benchmarks employ different datasets compared to the PrIM benchmarks. Generally, vPrIM uses larger datasets as input data to demonstrate the arguments made in our paper. As a result, our focus primarily lies in comparing the overhead (between native and vPIM) of vPrIM and PrIM, rather than comparing execution times. <br>
-
-![Result graph](results.png)
+Please see the run_vprim.py file
