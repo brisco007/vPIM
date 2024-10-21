@@ -9,11 +9,14 @@ This folder contains utility code:
 - **Debian packages**: Includes the following packages:
   - *upmem_2021.3.0_amd64.deb*: Installs version **2021.3.0** of the UPMEM SDK.
   - *upmem-driver-dkms_2021.3.0_amd64.deb*: Installs the kernel driver for UPMEM hardware.
-- **dpu_demo**: A checksum application. Find the original repository and instructions here: https://github.com/upmem/dpu_demo.git
-- **PrIM benchmark**: Code for the PrIM benchmark. The original repository with usage instructions can be found here: https://github.com/CMU-SAFARI/prim-benchmarks.git. To simplify running the benchmarks, we have provided Python scripts located at the root folder: *run_strong_full*, *run_strong_rank.py*, and *run_weak*.
+They are in the ```upmem-pkgs``` folder.
 - **vPrIM**: This was developed to improve the performance of PrIM applications, primarily by reducing the number of requests. Each app has specific updates.
 - **Miscellaneous**: The *upmem-code* folder contains various code snippets, such as microbenchmarks for UPMEM API functions and a "hello world" example.
 
+you can add more code from existing UPMEM Benchmarks:
+- **dpu_demo**: A checksum application. Find the original repository and instructions here: https://github.com/upmem/dpu_demo.git
+- **PrIM benchmark**: Code for the PrIM benchmark. The original repository with usage instructions can be found here: https://github.com/CMU-SAFARI/prim-benchmarks.git.
+  
 ## CODE Folder
 - **Firecracker Installation**: You'll need the *Rust* compiler and the musl toolchain to compile and use Firecracker. The Docker engine is also required. Once the environment is set up, compile Firecracker using:
   ```
@@ -71,7 +74,7 @@ To start a virtual machine, run the following scripts:
    ```
    sudo ./run-firecracker.sh
    ```
-   You can modify this script to change the allocated resources, such as the root filesystem or the number of ranks. For example, to allocate more ranks:
+   You can modify this script to change the allocated resources, such as the root filesystem or the number of vUPMEM devices. For example, to allocate more ranks:
    ```
    curl --unix-socket /tmp/firecracker.socket -i \
      -X PUT 'http://localhost/vpim' \
