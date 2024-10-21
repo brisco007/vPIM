@@ -130,4 +130,4 @@ NOTE : When running applications on UPMEM hardware (in a VM or otherwise), you m
 ```
 sudo ipmitool power cycle
 ```
-For VM errors, shut down the VM first.
+If these errors happen in the virtual machine, shut down the VM first and then do the power cycle.
