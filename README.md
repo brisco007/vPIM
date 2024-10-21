@@ -21,7 +21,7 @@ Once the environment has been setup, you just need to compile firecracker with :
 - **Scripts** : use the *nsfc-set-socket.sh* to run one firecracker instance and *run-firecracker.sh* to send requests to create the VM. use the version with suffix 2 in order to launch a second VM if needed. However, do not forget to modify it in order to avoid conflicts (entering the bad amount of deviecs for example).
 - **vpim_driver_setup.tar.xz** use the installation script contained in this compressed file to add the virtual PIM devices to the plugdev group in the virtual machine. You thus need to copy this in your virtual machine disk before hand.
 
-  ## HOW TO RUN THE SYSTEM
+  ## BEFORE RUNNING OUR SYSTEM
 
   We use Firecracker as our virtual machine. You first need to build a rootfs. you can do so by following [this](https://happybear.medium.com/building-ubuntu-20-04-root-filesystem-for-firecracker-e3f4267e58cc) tutorial step by step.
   NB : use at least 8GB to create the virtual disk.
@@ -30,6 +30,9 @@ Once the environment has been setup, you just need to compile firecracker with :
   sudo mount <my_disk> /mnt/<my_folder>
   ```
   Then copy the ```apps``` folder, the ```vpim_driver_setup.tar.xz``` and the upmem SDK ```upmem_2021.3.0_amd64.deb``` file to the virtual machine disk and install all the dependencies.
+  ```
+  sudo cp <path to the apps folder>/apps /mnt/<my_folder>/root/apps
+  ```
   ```
   chroot /mnt/<my_folder>
   ```
